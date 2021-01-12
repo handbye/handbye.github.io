@@ -1285,35 +1285,6 @@
     
     
     <entry>
-      <title>双向NAT</title>
-      <link href="2018/06/19/two-way-NAT/"/>
-      <url>2018/06/19/two-way-NAT/</url>
-      
-        <content type="html"><![CDATA[<h2 id="出现背景"><a href="#出现背景" class="headerlink" title="出现背景:"></a>出现背景:</h2><p><img src="https://raw.githubusercontent.com/handbye/images/master/b9811c8993f5ed74fe6e60a150e3a5e9.png" alt="b9811c8993f5ed74fe6e60a150e3a5e9.png"></p><p>在防火墙上部署了NATserver后，外网用户可以访问内部服务器。一般内部服务器都会通过一个域名进行解析。但如果内网用户也想通过此域名访问服务器就会出现问题。</p><h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h2><ol><li>防火墙上配置了NATserver，将公网ip    200.1.1.100映射为服务器的私网地址192.168.1.100。数据包会交给服务器。</li><li>pc访问服务器时的目的地址为200.1.1.100，此时防火墙会做转换，将目的地址转换为了192.168.1.100，源地址不变为192.168.1.1</li><li>去时的数据包走向没有问题，分析回来的，回来时就会出现问题。</li><li>由于服务器和PC处于同一网段（防火墙已放行PC所在区域和服务器所在区域的数据），回包时服务器发送ARP报文找到了PC的MAC地址，三层封装时源IP地址为：192.168.1.100，目的IP地址为192.168.1.1。源目MAC地址分别为服务器的MAC地址和PC的MAC地址。数据包直接走二层过去。</li><li>PC和服务进行通信需要建立TCP的三次握手,第一次握手时的目的IP地址为200.1.1.100，但此时却收到了192.168.1.100的回包。怎么办，凌乱了，握手不成功。TCP连接无法建立。</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><blockquote><p>上述问题产生的根本原因是PC访问服务器的数据包来回路径不一致，要解决这个问题只要使服务器访问PC的数据包经过防火墙即可。</p></blockquote><p>防火墙的内网接口地址为192.168.1.254，在防火墙上在做一个源NAT将PC访问服务器的源地址也做一个转换，将192.168.1.1转换为192.168.1.254。</p><p><strong>转换过后在分析：</strong></p><ol><li>过去的数据包走向和上述相同，不再分析。只不过在服务器看来，访问自己的地址变成了192.168.1.254。</li><li>回来时，服务器会把数据包交给192.168.1.254，此时由于防火墙上做了NAT srver,会将服务器的地址转换为200.1.1.100，由于做了源NAT，防火墙将目的地址192.168.1.254转换为192.168.1.1。此时就与之前的TCP三次握手对应上了，PC一看与我握手的是200.1.1.100，成功握手。</li><li>数据包来回路径一致，成功解救问题。</li></ol><p>参考:<br><a href="http://blog.sina.com.cn/s/blog_406127500102uwh3.html">http://blog.sina.com.cn/s/blog_406127500102uwh3.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 网络安全 </category>
-          
-          <category> NAT </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> NAT </tag>
-            
-            <tag> 防火墙 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>mpls vpn</title>
       <link href="2018/06/19/mpls-vpn/"/>
       <url>2018/06/19/mpls-vpn/</url>
@@ -1335,6 +1306,35 @@
             <tag> MPLS </tag>
             
             <tag> vpn </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>双向NAT</title>
+      <link href="2018/06/19/two-way-NAT/"/>
+      <url>2018/06/19/two-way-NAT/</url>
+      
+        <content type="html"><![CDATA[<h2 id="出现背景"><a href="#出现背景" class="headerlink" title="出现背景:"></a>出现背景:</h2><p><img src="https://raw.githubusercontent.com/handbye/images/master/b9811c8993f5ed74fe6e60a150e3a5e9.png" alt="b9811c8993f5ed74fe6e60a150e3a5e9.png"></p><p>在防火墙上部署了NATserver后，外网用户可以访问内部服务器。一般内部服务器都会通过一个域名进行解析。但如果内网用户也想通过此域名访问服务器就会出现问题。</p><h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h2><ol><li>防火墙上配置了NATserver，将公网ip    200.1.1.100映射为服务器的私网地址192.168.1.100。数据包会交给服务器。</li><li>pc访问服务器时的目的地址为200.1.1.100，此时防火墙会做转换，将目的地址转换为了192.168.1.100，源地址不变为192.168.1.1</li><li>去时的数据包走向没有问题，分析回来的，回来时就会出现问题。</li><li>由于服务器和PC处于同一网段（防火墙已放行PC所在区域和服务器所在区域的数据），回包时服务器发送ARP报文找到了PC的MAC地址，三层封装时源IP地址为：192.168.1.100，目的IP地址为192.168.1.1。源目MAC地址分别为服务器的MAC地址和PC的MAC地址。数据包直接走二层过去。</li><li>PC和服务进行通信需要建立TCP的三次握手,第一次握手时的目的IP地址为200.1.1.100，但此时却收到了192.168.1.100的回包。怎么办，凌乱了，握手不成功。TCP连接无法建立。</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><blockquote><p>上述问题产生的根本原因是PC访问服务器的数据包来回路径不一致，要解决这个问题只要使服务器访问PC的数据包经过防火墙即可。</p></blockquote><p>防火墙的内网接口地址为192.168.1.254，在防火墙上在做一个源NAT将PC访问服务器的源地址也做一个转换，将192.168.1.1转换为192.168.1.254。</p><p><strong>转换过后在分析：</strong></p><ol><li>过去的数据包走向和上述相同，不再分析。只不过在服务器看来，访问自己的地址变成了192.168.1.254。</li><li>回来时，服务器会把数据包交给192.168.1.254，此时由于防火墙上做了NAT srver,会将服务器的地址转换为200.1.1.100，由于做了源NAT，防火墙将目的地址192.168.1.254转换为192.168.1.1。此时就与之前的TCP三次握手对应上了，PC一看与我握手的是200.1.1.100，成功握手。</li><li>数据包来回路径一致，成功解救问题。</li></ol><p>参考:<br><a href="http://blog.sina.com.cn/s/blog_406127500102uwh3.html">http://blog.sina.com.cn/s/blog_406127500102uwh3.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> NAT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NAT </tag>
+            
+            <tag> 防火墙 </tag>
             
         </tags>
       
@@ -1370,6 +1370,33 @@
     
     
     <entry>
+      <title>shell中正则表达式总结</title>
+      <link href="2018/06/13/shell-regex/"/>
+      <url>2018/06/13/shell-regex/</url>
+      
+        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NAT server和目的NAT</title>
       <link href="2018/06/13/NATserver-DNAT/"/>
       <url>2018/06/13/NATserver-DNAT/</url>
@@ -1391,33 +1418,6 @@
             <tag> NATserver </tag>
             
             <tag> 目的NAT </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>shell中正则表达式总结</title>
-      <link href="2018/06/13/shell-regex/"/>
-      <url>2018/06/13/shell-regex/</url>
-      
-        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       
