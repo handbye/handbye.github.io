@@ -1,0 +1,2801 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++学习笔记, darkless,网络安全">
+    <meta name="description" content="网络与信息安全博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>C++学习笔记 | Darkless</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Darkless" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Darkless</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fab fa-internet-explorer" style="zoom: 0.6;"></i>
+      
+      <span>Web安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fas fa-network-wired" style="zoom: 0.6;"></i>
+      
+      <span>网络安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+      
+      <i class="fas fa-random" style="zoom: 0.6;"></i>
+      
+      <span>路由交换</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/my-docs" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>Docs</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Darkless</div>
+        <div class="logo-desc">
+            
+            网络与信息安全博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-internet-explorer"></i>
+			
+			Web安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-network-wired"></i>
+			
+			网络安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-random"></i>
+			
+			路由交换
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/my-docs" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			Docs
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122180717.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">C++学习笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/c/">
+                                <span class="chip bg-color">c++</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                编程
+                            </a>
+                        
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/c/" class="post-category">
+                                c++
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="程序执行的本质"><a href="#程序执行的本质" class="headerlink" title="程序执行的本质"></a>程序执行的本质</h1><p>当我们写完一段程序需要给电脑进行运行时，首先编译器需要将代码编译为CPU可以看懂的机器码然后装载到内存中，CPU读取到内存中的指令后就会执行其中的执行控制IO设备完成相应的工作。</p>
+<p>CPU分为寄存器，运算器和控制器三部分。</p>
+<h1 id="第一行c-代码"><a href="#第一行c-代码" class="headerlink" title="第一行c++代码"></a>第一行c++代码</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+
+int main()
+&#123;
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175455.png" alt="image-20200730232556700"></p>
+<h1 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h1><p>c++的源文件扩展名是cpp</p>
+<p>c++程序的入口是main函数</p>
+<p>c++完全兼容c</p>
+<h2 id="cin、cout"><a href="#cin、cout" class="headerlink" title="cin、cout"></a>cin、cout</h2><p>需包含头文件 <code>#include &lt;iostream&gt;</code></p>
+<p>cout表示输出，例如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+&#123;
+    cout &lt;&lt; &quot;Hello World!\n&quot;;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175456.png" alt="image-20200805231612535"></p>
+<p>其中<code>&lt;&lt;</code>表示左移运算符（位运算）</p>
+<p>在c++中<code>endl</code>也表示换行，所以上述语句也可以写成：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+&#123;
+    cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; endl;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>cin表示从键盘输入，例如：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+&#123;
+    int age;
+    cin &gt;&gt; age;
+    cout &lt;&lt; &quot;age is: &quot; &lt;&lt; age &lt;&lt; endl;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175457.png" alt="image-20200805232400967"></p>
+<p>其中<code>&gt;&gt;</code>表示有移运算符</p>
+<h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a>getchar()</h2><p>等待用户输入</p>
+<h1 id="函数重载（overload）"><a href="#函数重载（overload）" class="headerlink" title="函数重载（overload）"></a>函数重载（overload）</h1><p>当一个项目中存在多个函数，这些函数的函数名相同，但是函数传入的个数和类型不同，c++会自动按照函数传入的个数和类型寻找对应的函数进行运算，这个过程称为函数重载。</p>
+<p>例如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int sum(int v1, int v2) &#123;
+    return v1 + v2;
+&#125;
+
+int sum(int v1, int v2, int v3) &#123;
+    return v1 + v2 + v3;
+&#125;
+
+int main()
+&#123;
+    cout &lt;&lt; sum(10, 20) &lt;&lt; endl;
+    cout &lt;&lt; sum(10, 20, 30) &lt;&lt; endl;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175458.png" alt="image-20200806233223696"></p>
+<p>sum函数随着传入的实参个数不同会自动寻找对应的函数去计算。</p>
+<p>返回值类型与函数重载无关。</p>
+<p>在c语言中是不支持函数重载的。</p>
+<h1 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h1><p>c++允许函数设置默认参数，在调用时可以根据情况省略实参，规则如下：</p>
+<ul>
+<li>默认参数只能按照右到左的顺序</li>
+<li>如果函数同时有声明，实现，默认参数只能放在函数声明中</li>
+<li>默认参数的值可以时常量，全局符号（全局变量，函数名）</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int sum(int v1 &#x3D; 5, int v2 &#x3D; 6) &#123;
+    return v1 + v2;
+&#125;
+
+
+int main()
+&#123;   
+    cout &lt;&lt; sum() &lt;&lt; endl;
+    cout &lt;&lt; sum(10) &lt;&lt; endl;
+    cout &lt;&lt; sum(10, 20) &lt;&lt; endl;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175459.png" alt="image-20200809171135938"></p>
+<h1 id="extern-“C”"><a href="#extern-“C”" class="headerlink" title="extern “C”"></a>extern “C”</h1><p>被extern c 修饰的代码会按照c语言的方式进行编译。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+extern &quot;C&quot; &#123;
+    void func() &#123;
+
+    &#125;
+
+    void func(int v1) &#123;
+
+    &#125;
+&#125;
+
+
+int main()
+&#123;   
+
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的两个函数使用<code>extern  “c”</code>修饰后就会使用c语言的方式进行编译，但是由于c语言不支持函数重载，所以编译会报错。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175500.png" alt="image-20200809233222821"></p>
+<ul>
+<li>如果函数通过是有声明和实现，要让函数声明被<code>extern &quot;c&quot;</code>修饰，函数实现可以不修饰。</li>
+</ul>
+<p>何时需要用到 <code>extern c</code> ？</p>
+<ol>
+<li>用在c，c++的混合开发中，如果用到一些第三方的c语言库，那么就可以使用 extern c</li>
+<li></li>
+</ol>
+<p>例：</p>
+<p>现在有一个c文件内容为：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> v1 <span class="token operator">+</span> v2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">delta</span><span class="token punctuation">(</span><span class="token keyword">int</span> v1<span class="token punctuation">,</span> <span class="token keyword">int</span> v2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> v1 <span class="token operator">-</span> v2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果在c++中需要调用这个c文件中的函数，那么c++文件应该这么写：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+extern &quot;C&quot;&#123;
+	int sum(int v1, int v2);
+	int delta(int v1, int v2);
+&#125;
+
+
+int main()&#123;
+	cout &lt;&lt; sum(10, 20) &lt;&lt; endl;
+	cout &lt;&lt; delta(50, 10) &lt;&lt; endl;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175501.png" alt="image-20200810234941950"></p>
+<p><strong>也就是声明必须用<code>extern &quot;c&quot; </code>包裹，否则编译会报错</strong></p>
+<p>为了方便调用，可以将声明放到头文件中，新建头文件<code>math.h</code>:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175502.png" alt="image-20200810235310952"></p>
+<p>然后c++中include此头文件即可：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175503.png" alt="image-20200810235356433"></p>
+<h1 id="ifdef"><a href="#ifdef" class="headerlink" title="ifdef"></a>ifdef</h1><p>为了使只有c++调用<code>math.h</code>头文件时才加<code>extern “c”</code>，可以使用<code>#ifdef</code>进行判断</p>
+<blockquote>
+<p>c++文件默认都会有一个宏定义 #define  __cplusplus</p>
+</blockquote>
+<p>然后头文件就可以这样写：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifdef __cplusplus
+extern &quot;C&quot; &#123;
+#endif
+    
+	int sum(int v1, int v2);
+	int delta(int v1, int v2);
+
+#ifdef __cplusplus
+&#125;
+#endif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="pragma-once"><a href="#pragma-once" class="headerlink" title="pragma once"></a>pragma once</h1><p><code># pragma once</code>是用来防止头文件被重复包含</p>
+<p>例如在某个程序中多次写了包含头文件，在头文件中写了<code># pragma once</code>就可以防止头文件中的内容被多次编译。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175504.png" alt="image-20200811230751965"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175505.png" alt="image-20200811231052639"></p>
+<h1 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h1><p>使用<code>inline</code>修饰函数的声明或实现，可以使其变成内联函数</p>
+<p>建议声明和实现都增加<code>inline修饰</code></p>
+<p>特点：</p>
+<ul>
+<li>编译器会将函数调用直接展开为函数体代码</li>
+<li>可以减少函数调用的开销</li>
+<li>会增大代码体积</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>尽量不要内联超过10行代码的函数</li>
+<li>有些函数即使声明为<code>inline</code>,也不一定会被编译器内联，比如递归函数</li>
+</ul>
+<p><strong>内联函数和宏的区别</strong></p>
+<ul>
+<li>内联函数和宏，都可以减少函数调用的开销</li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+#define sum(v1,v2) v1 + v2
+
+int main()&#123;
+	int c &#x3D; sum(10, 20);
+	cout &lt;&lt; c &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175506.png" alt="image-20200812224311285"></p>
+<p>上述代码也可以正常运行</p>
+<ul>
+<li>对比宏，内联函数多了语法检测和函数特性</li>
+<li>宏只是简单的文本替换，所以遇到计算尽量使用函数</li>
+</ul>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>const是常量的意思，被其修饰的变量不可修改。</p>
+<ul>
+<li>如果修饰的是类、结构体（的指针），其成员也不可以更改</li>
+<li>const修饰的其右边的内容</li>
+</ul>
+<p>一下5个指针的分别是什么含义？</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int age &#x3D; 10;
+const int *p0 &#x3D; &amp;age;
+int const *p1 &#x3D; &amp;age;
+int * const p2 &#x3D; &amp;age;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+
+    int age &#x3D; 10;
+    int heigh &#x3D; 20;
+
+    int * const p2 &#x3D; &amp;age;
+
+    *p2 &#x3D; 30; &#x2F;&#x2F;age&#x3D;30
+    p2 &#x3D; &amp;heigh;  &#x2F;&#x2F;报错
+    *p2 &#x3D; 40; &#x2F;&#x2F;heigh &#x3D; 40
+
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175507.png" alt="image-20200813223143851"></p>
+<p>报错的原因是const修饰的是其右边的内容，const修饰的是p2所以<code>p2=&amp;heigh</code>报错，而<code>*p2=30</code>就不会报错.</p>
+<h1 id="引用-reference"><a href="#引用-reference" class="headerlink" title="引用(reference)"></a>引用(reference)</h1><p>在C语言中，使用指针（Pointer）可以间接获取、修改某个变量的值</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+
+    int age &#x3D; 10;
+
+    int* p &#x3D; &amp;age;
+
+    *p &#x3D; 20;
+
+    cout &lt;&lt; age &lt;&lt; endl;
+
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175508.png" alt="image-20200813224428027"></p>
+<p>在C++中，使用引用（Reference）可以起到跟指针类似的功能</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+
+    int age &#x3D; 10;
+
+    &#x2F;&#x2F;定义一个age的引用
+    int &amp;refAge &#x3D; age;
+    refAge &#x3D; 20;
+    cout &lt;&lt; age &lt;&lt; endl;
+
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175509.png" alt="image-20200813224851288"></p>
+<ul>
+<li>引用相当于是变量的别名（基本数据类型、枚举、结构体、类、指针、数组等，都可以有引用）</li>
+<li>对引用做计算，就是对引用所指向的变量做计算</li>
+<li>在定义的时候就必须初始化，一旦指向了某个变量，就不可以再改变，“从一而终”</li>
+<li>可以利用引用初始化另一个引用，相当于某个变量的多个别名</li>
+<li>不存在【引用的引用、指向引用的指针、引用数组】</li>
+</ul>
+<p><strong>引用存在的价值之一：比指针更安全、函数返回值可以被赋值</strong></p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+void swap(int &amp;v1, int &amp;v2) &#123;
+	int tmp &#x3D; v1;
+	v1 &#x3D; v2;
+	v2 &#x3D; tmp;
+&#125;
+
+int main()&#123;
+	int a &#x3D; 10;
+	int b &#x3D; 20;
+	swap(a, b);
+	cout &lt;&lt; &quot;a&#x3D; &quot; &lt;&lt; a &lt;&lt; &quot;  b&#x3D; &quot; &lt;&lt; b &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175510.png" alt="image-20200813230443222"></p>
+<p>上述代码就轻松完成了在主函数内部使用用swap函数完成a和b的值的替换，使得<strong>swap函数访问了它函数外部的值</strong>。</p>
+<h1 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h1><p>汇编语言的种类：</p>
+<ul>
+<li>8086汇编（16bit）</li>
+<li>x86汇编（32bit）</li>
+<li>x64汇编（64bit）</li>
+<li>ARM汇编（嵌入式、移动设备</li>
+</ul>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175511.png" alt="image-20200824224209480"></p>
+<p>通常，CPU会将内存中的数据存到寄存器中，然后在对寄存器中的数据进行运算</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175512.png" alt="image-20200824224424116"></p>
+<h2 id="x64汇编-寄存器"><a href="#x64汇编-寄存器" class="headerlink" title="x64汇编-寄存器"></a>x64汇编-寄存器</h2><p>RAX RBX RCX RDX 为通用寄存器</p>
+<p>X64架构的寄存器，一个寄存器可以存8个字节的数据</p>
+<p>x86架构下的通用寄存器为：EAX EBX ECX EDX ,为了兼容32位的CPU架构，拿出了最低四个字节来存放EAX的数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175513.png" alt="image-20200824225301214"></p>
+<h2 id="内联汇编"><a href="#内联汇编" class="headerlink" title="内联汇编"></a>内联汇编</h2><p>在c++中嵌入汇编代码称为内联汇编，汇编代码使用<code>__asm</code>包裹。</p>
+<p>例如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+	int a &#x3D; 10;
+
+	__asm &#123;
+		mov eax, 10
+
+	&#125;
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="mov指令"><a href="#mov指令" class="headerlink" title="mov指令"></a>mov指令</h2><p><code>mov dest, src</code><br>将src的内容赋值给dest，类似于dest = src</p>
+<p><code>[ 地址值 ]</code><br>中括号[ ]里面放的都是内存地址</p>
+<p>word是2字节，dword是4字节（double word），qword是8字节（quad word）</p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">mov dword ptr [a],0Ah  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>表示将10放到内存地址为a的存储空间中，并占用4个字节</p>
+<h2 id="call函数地址"><a href="#call函数地址" class="headerlink" title="call函数地址"></a>call函数地址</h2><p>call 表示调用函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175514.png" alt="image-20200826232903520"></p>
+<h2 id="lea指令"><a href="#lea指令" class="headerlink" title="lea指令"></a>lea指令</h2><p><code>lea dest, [ 地址值 ]</code></p>
+<p>将地址值赋值给dest，类似于dest = 地址值</p>
+<p>lea是直接赋值地址值，而mov是取内存地址中存放的东西</p>
+<p>例：</p>
+<pre class="line-numbers language-none"><code class="language-none">mov eax, dword ptr [1122H]
+表示取出[1122H]这个内存地址中存放的东西赋值给eax
+lea eax, [1122H]
+表示直接将1122H赋值给eax<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ret"><a href="#ret" class="headerlink" title="ret"></a>ret</h2><p>ret表示函数返回</p>
+<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p><code>xor op1, op2</code></p>
+<p>将op1和op2异或的结果赋值给op1，类似于op1 = op1 ^ op2</p>
+<h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><p><code>add op1, op2</code></p>
+<p>类似于op1 = op1 + op2</p>
+<h2 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h2><p><code>sub op1, op2</code></p>
+<p>类似于op1 = op1 - op2</p>
+<h2 id="inc"><a href="#inc" class="headerlink" title="inc"></a>inc</h2><p><code> inc op</code></p>
+<p>自增，类似于op = op + 1</p>
+<h2 id="des"><a href="#des" class="headerlink" title="des"></a>des</h2><p><code>dec op</code></p>
+<p>自减，类似于op = op – 1</p>
+<h2 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h2><p>jmp 内存地址</p>
+<p>跳转到某个内存地址去执行代码</p>
+<p>j开头的一般都是跳转，大多数是带条件的跳转，一般跟test、cmp等指令配合使用</p>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><p>C++中可以使用struct、class来定义一个类<br><strong>struct和class的区别:</strong><br>struct的默认成员权限是public<br>class的默认成员权限是private</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+&#x2F;&#x2F;类的定义
+struct Person&#123;
+	&#x2F;&#x2F;成员变量
+	int m_age;
+	&#x2F;&#x2F;成员函数
+	void run() &#123;
+		cout &lt;&lt; m_age &lt;&lt; &quot;run&quot; &lt;&lt; endl;
+	&#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Person &#123;
+public:
+	&#x2F;&#x2F;成员变量
+	int m_age;
+	&#x2F;&#x2F;成员函数
+	void run() &#123;
+		cout &lt;&lt; m_age &lt;&lt; &quot;run&quot; &lt;&lt; endl;
+	&#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="类的实例化"><a href="#类的实例化" class="headerlink" title="类的实例化"></a>类的实例化</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()&#123;
+	Person person;
+	person.m_age &#x3D; 20;
+	person.run();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h2><p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175515.png" alt="image-20201011232945088"></p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>this是指向当前对象的指针</p>
+<p>对象在调用成员函数的时候，会自动传入当前对象的内存地址</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+&#x2F;&#x2F;类的定义
+class Person &#123;
+public:
+	&#x2F;&#x2F;成员变量
+	int m_age;
+	&#x2F;&#x2F;成员函数
+	void run() &#123;
+		cout &lt;&lt; this-&gt;m_age &lt;&lt; &quot;run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+int main()&#123;
+	Person person1;
+	person1.m_age &#x3D; 20;
+	person1.run();
+
+	Person person2;
+	person2.m_age &#x3D; 30;
+	person2.run();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如上面的例子，当存在两个Person对象时，不同的对象在调用同一个<code>run()</code>方法时是如何寻找到属于自己的m_age的呢？就是靠this这个指针，this默认指向当前对象的内存地址，为当前对象寻找对应方法。this是一个隐式参数，其实不写this也可以正常执行，如下：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+&#x2F;&#x2F;类的定义
+class Person &#123;
+public:
+	&#x2F;&#x2F;成员变量
+	int m_age;
+	&#x2F;&#x2F;成员函数
+	void run() &#123;
+		cout &lt;&lt; m_age &lt;&lt; &quot;run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+int main()&#123;
+	Person person1;
+	person1.m_age &#x3D; 20;
+	person1.run();
+
+	Person person2;
+	person2.m_age &#x3D; 30;
+	person2.run();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175516.png" alt="image-20201012000235903"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175517.png" alt="image-20201012000303084"></p>
+<h2 id="指针访问对象成员的本质"><a href="#指针访问对象成员的本质" class="headerlink" title="指针访问对象成员的本质"></a>指针访问对象成员的本质</h2><p>待补充</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p> 封装的含义是成员变量私有化，提供公共的getter和setter给外界去访问成员变量。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+&#x2F;&#x2F;类的定义
+class Person &#123;
+private:
+	&#x2F;&#x2F;成员变量
+	int m_age;
+public:
+	void setAge(int age) &#123;
+		if (age&lt;&#x3D;0)&#123;
+			m_age &#x3D; 1;
+		&#125;
+		else &#123;
+			m_age &#x3D; age;
+		&#125;
+	&#125;
+	int getAge()&#123;
+		return m_age;
+	&#125;
+&#125;;
+int main()&#123;
+	Person person;
+	person.setAge(-4);
+	cout &lt;&lt; person.getAge() &lt;&lt; endl;
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175518.png" alt="image-20201018224547218"></p>
+<h2 id="内存空间布局"><a href="#内存空间布局" class="headerlink" title="内存空间布局"></a>内存空间布局</h2><p> 每个应用都有自己独立的内存空间，其内存空间一般都有以下几大区域：<br><strong>代码段（代码区）</strong><br>用于存放代码<br><strong>数据段（全局区</strong>）<br>用于存放全局变量等<br><strong>栈空间</strong><br> 每调用一个函数就会给它分配一段连续的栈空间，等函数调用完毕后会自动回收这段栈空间<br>自动分配和回收<br><strong>堆空间</strong><br>需要主动去申请和释放</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175519.png" alt="image-20201018225324764"></p>
+<h2 id="堆空间"><a href="#堆空间" class="headerlink" title="堆空间"></a>堆空间</h2><p>在程序运行过程，为了能够自由控制内存的生命周期、大小，会经常使用堆空间的内存</p>
+<p>堆空间的申请\释放（malloc \ free）</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+	&#x2F;&#x2F;申请四个字节的内存空间用来存储整形数据，
+	&#x2F;&#x2F;由于malloc申请的内存默认都为void * ，所以需要强转
+	int * p &#x3D; (int *) malloc(4);
+	* p &#x3D; 11;
+	cout &lt;&lt; * p &lt;&lt; endl;
+	free(p);
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175520.png" alt="image-20201018231207004"></p>
+<p>或申请一个char类型的内存</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+
+	char * p &#x3D; (char *) malloc(4);
+	*p &#x3D; &#39;a&#39;;
+	*(p + 1) &#x3D; 10;
+	*(p + 2) &#x3D; 11;
+	*(p + 3) &#x3D; 12;
+	cout &lt;&lt; * p &lt;&lt; endl;
+	free(p);
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175521.png" alt="image-20201018231758381"></p>
+<p>除此外c++还支持new/delete方式申请内存</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+
+	int *p &#x3D; new int;
+	*p &#x3D; 10;
+	cout &lt;&lt; * p &lt;&lt; endl;
+	delete p;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175522.png" alt="image-20201018232104341"></p>
+<p><strong>注意</strong></p>
+<ul>
+<li>申请堆空间成功后，会返回那一段内存空间的地址</li>
+<li>申请和释放必须是1对1的关系，不然可能会存在内存泄露</li>
+</ul>
+<h2 id="堆空间的初始化"><a href="#堆空间的初始化" class="headerlink" title="堆空间的初始化"></a>堆空间的初始化</h2><p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175523.png" alt="image-20201022223317787"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175524.png" alt="image-20201022223322607"></p>
+<p>memset函数是将较大的数据结构（比如对象、数组等）内存清零的比较快的方法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175525.png" alt="image-20201022224249246"></p>
+<h2 id="对象的内存"><a href="#对象的内存" class="headerlink" title="对象的内存"></a>对象的内存</h2><p>对象的内存可以存在于3种地方：</p>
+<ul>
+<li>全局区（数据段）：全局变量</li>
+<li>栈空间：函数里面的局部变量</li>
+<li>堆空间：动态申请内存（malloc、new等）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175526.png" alt="image-20201022224656159"></p>
+<h2 id="构造函数（Constructor）"><a href="#构造函数（Constructor）" class="headerlink" title="构造函数（Constructor）"></a>构造函数（Constructor）</h2><p>构造函数（也叫构造器），在对象创建的时候自动调用，一般用于完成对象的初始化工作</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+public:
+	int m_age;
+	Person() &#123;
+		cout &lt;&lt; &quot;Person()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main()&#123;
+	Person person;
+	Person person1;
+	Person person2;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175527.png" alt="image-20201022230951621"></p>
+<p>可看到在对象初始化时就会自动调用构造函数。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>函数名与类同名，无返回值（void都不能写），可以有参数，可以重载，可以有多个构造函数</li>
+<li>一旦自定义了构造函数，必须用其中一个自定义的构造函数来初始化对象</li>
+</ul>
+<p><strong>注意</strong>:</p>
+<p>通过malloc分配的对象不会调用构造函数</p>
+<h2 id="析构函数（Destructor）"><a href="#析构函数（Destructor）" class="headerlink" title="析构函数（Destructor）"></a>析构函数（Destructor）</h2><p> 析构函数（也叫析构器），在对象销毁的时候自动调用，一般用于完成对象的清理工作。</p>
+<p>函数名以<code>~</code>开头，与类同名，无返回值（void都不能写），无参，不可以重载，有且只有一个析构函数</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+public:
+	int m_age;
+	Person() &#123;
+		cout &lt;&lt; &quot;Person()&quot; &lt;&lt; endl;
+	&#125;
+
+	&#x2F;&#x2F;一个Person对象销毁的象征
+	~Person() &#123;
+		cout &lt;&lt; &quot;~Persoon()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main()&#123;
+	Person person;
+	Person person1;
+	Person person2;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175528.png" alt="image-20201107222040456"></p>
+<p><strong>注意:</strong></p>
+<ul>
+<li>通过malloc分配的对象free的时候不会调用析构函数</li>
+<li>构造函数、析构函数要声明为public，才能被外界正常使用</li>
+</ul>
+<h2 id="声明和实现分离"><a href="#声明和实现分离" class="headerlink" title="声明和实现分离"></a>声明和实现分离</h2><p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+&#x2F;&#x2F;声明
+class Person &#123;
+private:
+	int m_age;
+public:
+	void setAge(int age);
+	int getAge();
+	Person();
+	~Person();
+&#125;;
+
+
+&#x2F;&#x2F;实现
+Person::Person() &#123;
+	 m_age &#x3D; 0;
+&#125;
+
+void Person::setAge(int age) &#123;
+	this-&gt;m_age &#x3D; age;
+&#125;
+
+int Person::getAge() &#123;
+	return this-&gt;m_age;
+&#125;
+
+Person::~Person() &#123;
+
+&#125;
+
+int main() &#123;
+	Person person;
+	person.setAge(1);
+	cout &lt;&lt; person.getAge() &lt;&lt; endl;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175529.png" alt="image-20201107230225815"></p>
+<p><strong>也可以将声明放在头文件中</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175530.png" alt="image-20201107230351372"></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>命名空间可以用来避免命名冲突。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+namespace abc &#123;
+	int g_age;
+
+	class Person &#123;&#125;;
+
+	void test() &#123;
+
+	&#125;
+&#125;
+
+int main() &#123;
+	abc::g_age &#x3D; 20;
+	abc::Person* p &#x3D; new abc::Person();
+	abc::test();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以使用<code>namespace</code> 来定义命令空间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175531.png" alt="image-20201108214705448"></p>
+<p>为了方便，可以使用<code>using namespace</code>来规定命名空间的范围</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">using namespace abc;
+g_age &#x3D; 20;
+Person* p &#x3D; new Person();
+test();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175532.png" alt="image-20201108215051621"></p>
+<p>命名空间可以嵌套和合并，c++中存在一个默认的全局命名空间<code>::</code>我们创建的命名空间默认都嵌套在它里面.</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int g_age;
+
+namespace abc &#123;
+	int g_age;
+
+	class Person &#123;&#125;;
+
+	void test() &#123;
+
+	&#125;
+&#125;
+
+int main() &#123;
+	::g_age &#x3D; 20;
+	using namespace abc;
+	::abc::g_age &#x3D; 70;
+	Person* p &#x3D; new Person();
+	test();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175533.png" alt="image-20201108220004472"></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承，可以让子类拥有父类的所有成员（变量\函数）。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+public:
+	int age;
+	void run() &#123;
+		cout &lt;&lt; &quot;Person::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Student : public Person &#123;
+public:
+	int class_num;
+	void study() &#123;
+		cout &lt;&lt; &quot;Student::study()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main() &#123;
+	Student student;
+	student.age &#x3D; 20;
+	student.class_num &#x3D; 10;
+	student.run();
+	student.study();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175534.png" alt="image-20201108233435241"></p>
+<p> <strong>关系描述</strong></p>
+<ul>
+<li>Student是子类（subclass，派生类）</li>
+<li>Person是父类（superclass，超类）</li>
+</ul>
+<p>具体的继承关系可参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-inheritance.html">https://www.runoob.com/cplusplus/cpp-inheritance.html</a></p>
+<p>继承对象的内存布局：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175535.png" alt="image-20201108233607597"></p>
+<h2 id="成员访问权限"><a href="#成员访问权限" class="headerlink" title="成员访问权限"></a>成员访问权限</h2><p> <strong>成员访问权限、继承方式有3种：</strong></p>
+<ul>
+<li>public：公共的，任何地方都可以访问（struct默认）</li>
+<li>protected：子类内部、当前类内部可以访问</li>
+<li>private：私有的，只有当前类内部可以访问（class默认）</li>
+</ul>
+<p><strong>子类内部访问父类成员的权限，是以下2项中权限最小的那个</strong></p>
+<ul>
+<li>成员本身的访问权限</li>
+<li>上一级父类的继承方式</li>
+</ul>
+<p>开发中用的最多的继承方式是public，这样能保留父类原来的成员访问权限</p>
+<p>访问权限不影响对象的内存布局</p>
+<p>具体的继承关系可参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-inheritance.html">https://www.runoob.com/cplusplus/cpp-inheritance.html</a></p>
+<h2 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h2><p> <strong>特点</strong></p>
+<ul>
+<li>一种便捷的初始化成员变量的方式</li>
+<li>只能用在构造函数中</li>
+<li>初始化顺序只跟成员变量的声明顺序有关</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Person &#123;
+public:
+	int m_age;
+	int m_height;
+	Person(int age, int height) : m_age(age), m_height(height) &#123;
+
+	&#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175536.png" alt="image-20201111184404488"></p>
+<p>上述的这种写法就是初始化列表</p>
+<p>它等价于：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Person &#123;
+public:
+	int m_age;
+	int m_height;
+	Person(int age, int height) &#123;
+		this-&gt;m_age &#x3D; age;
+		this-&gt;m_height &#x3D; height;
+	&#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="初始化列表与默认参数配合使用"><a href="#初始化列表与默认参数配合使用" class="headerlink" title="初始化列表与默认参数配合使用"></a>初始化列表与默认参数配合使用</h3><p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+public:
+	int m_age;
+	int m_height;
+	Person(int age &#x3D; 0, int height &#x3D; 0) : m_age(age), m_height(height) &#123;
+		cout &lt;&lt; m_age &lt;&lt; &quot; &quot; &lt;&lt; m_height &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main() &#123;
+	Person person1;
+	Person person2(18);
+	Person person3(18, 20);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175537.png" alt="image-20201111185105379"></p>
+<p><strong>注意：</strong></p>
+<p>如果函数声明和实现是分离的</p>
+<ul>
+<li>初始化列表只能写在函数的实现中</li>
+<li>默认参数只能写在函数的声明中</li>
+</ul>
+<h3 id="构造函数的互相调用"><a href="#构造函数的互相调用" class="headerlink" title="构造函数的互相调用"></a>构造函数的互相调用</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+public:
+	int m_age;
+	int m_height;
+	Person() : Person(10,20) &#123;
+
+	&#125;
+	Person(int age , int height) : m_age(age), m_height(height) &#123;
+		cout &lt;&lt; m_age &lt;&lt; &quot; &quot; &lt;&lt; m_height &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main() &#123;
+	Person person1;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175538.png" alt="image-20201111192707468"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175539.png" alt="image-20201111192717615"></p>
+<h3 id="父类的构造函数"><a href="#父类的构造函数" class="headerlink" title="父类的构造函数"></a>父类的构造函数</h3><ul>
+<li><p>子类的构造函数默认会调用父类的无参构造函数</p>
+</li>
+<li><p>如果子类的构造函数显式地调用了父类的有参构造函数，就不会再去默认调用父类的无参构造函数</p>
+</li>
+<li><p>如果父类缺少无参构造函数，子类的构造函数必须显式调用父类的有参构造函数</p>
+</li>
+</ul>
+<h2 id="父类指针，子类指针"><a href="#父类指针，子类指针" class="headerlink" title="父类指针，子类指针"></a>父类指针，子类指针</h2><p>父类指针可以指向子类对象，是安全的，开发中经常用到（继承方式必须是public）。</p>
+<p>子类指针指向父类对象是不安全的。</p>
+<p>例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175540.png" alt="image-20201111214646623"></p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>默认情况下，编译器只会根据指针类型调用对应的函数，不存在多态。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Dog &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Dog::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Dog::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Cat &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Cat::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Cat::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Pig &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Pig::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Pig::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+void liu(Dog* p) &#123;
+	p-&gt;run();
+	p-&gt;speak();
+&#125;
+
+void liu(Cat* p) &#123;
+	p-&gt;run();
+	p-&gt;speak();
+&#125;
+
+void liu(Pig* p) &#123;
+	p-&gt;run();
+	p-&gt;speak();
+&#125;
+
+int main() &#123;
+	liu(new Dog());
+	liu(new Cat());
+	liu(new Pig());
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在上面的例子中，虽然三只动物都有共同的属性 run 和 speak，但是我们定义的三个函数在表达三只动物的run和speak。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175541.png" alt="image-20201111222221438"></p>
+<p>那能否在定义一个Animal 父类，让三只动物都继承其run和speak呢？</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Animal &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Animal::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Animal::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+
+class Dog : public Animal&#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Dog::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Dog::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Cat : public  Animal &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Cat::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Cat::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Pig : public  Animal &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Pig::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Pig::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+&#x2F;&#x2F;父指针指向子类对象
+void liu(Animal * p) &#123;
+	p-&gt;run();
+	p-&gt;speak();
+&#125;
+
+
+int main() &#123;
+	liu(new Dog());
+	liu(new Cat());
+	liu(new Pig());
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175542.png" alt="image-20201111222728124"></p>
+<p>但是结果确不正确，因为<strong>默认情况下，编译器只会根据指针类型调用对应的函数，不存在多态</strong>。</p>
+<p> <strong>多态的要素：</strong></p>
+<ul>
+<li>子类重写父类的成员函数（override）</li>
+<li>父类指针指向子类对象</li>
+<li>利用父类指针调用重写的成员函数</li>
+</ul>
+<p><strong>多态是面向对象非常重要的一个特性</strong></p>
+<ul>
+<li>同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果</li>
+<li>在运行时，可以识别出真正的对象类型，调用对应子类中的函数</li>
+</ul>
+<p>如何实现多态呢？在c++中需要使用虚函数来实现。</p>
+<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><p>C++中的多态通过虚函数（virtual function）来实现。</p>
+<p>虚函数：被virtual修饰的成员函数。</p>
+<p>只要在父类中声明为虚函数，子类中重写的函数也自动变成虚函数（也就是说子类中可以省略virtual关键字）。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Animal &#123;
+public:
+	virtual void speak() &#123;
+		cout &lt;&lt; &quot;Animal::speak()&quot; &lt;&lt; endl;
+	&#125;
+	virtual void run() &#123;
+		cout &lt;&lt; &quot;Animal::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+
+class Dog : public Animal&#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Dog::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Dog::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Cat : public  Animal &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Cat::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Cat::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Pig : public  Animal &#123;
+public:
+	void speak() &#123;
+		cout &lt;&lt; &quot;Pig::speak()&quot; &lt;&lt; endl;
+	&#125;
+	void run() &#123;
+		cout &lt;&lt; &quot;Pig::run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+void liu(Animal * p) &#123;
+	p-&gt;run();
+	p-&gt;speak();
+&#125;
+
+
+int main() &#123;
+	liu(new Dog());
+	liu(new Cat());
+	liu(new Pig());
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175543.png" alt="image-20201111230748704"></p>
+<h3 id="虚表"><a href="#虚表" class="headerlink" title="虚表"></a>虚表</h3><p>虚函数的实现原理是虚表，这个虚表里面存储着最终需要调用的虚函数地址，这个虚表也叫虚函数表。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175544.png" alt="image-20201112120207320"></p>
+<h3 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h3><p> 如果存在父类指针指向子类对象的情况，应该将析构函数声明为虚函数（虚析构函数）</p>
+<p>delete父类指针时，才会调用子类的析构函数，保证析构的完整性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175545.png" alt="image-20201112143137618"></p>
+<h3 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h3><p>纯虚函数：没有函数体且初始化为0的虚函数，用来定义接口规范</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175546.png" alt="image-20201112154021614"></p>
+<p><strong>抽象类（Abstract Class）</strong></p>
+<ul>
+<li>含有纯虚函数的类，不可以实例化（不可以创建对象）</li>
+<li>抽象类也可以包含非纯虚函数、成员变量</li>
+<li>如果父类是抽象类，子类没有完全重写纯虚函数，那么这个子类依然是抽象类</li>
+</ul>
+<h2 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h2><p> 静态成员：被static修饰的成员变量\函数。</p>
+<p>可以通过对象（对象.静态成员）、对象指针（对象指针-&gt;静态成员）、类访问（类名::静态成员）。</p>
+<h3 id="静态成员变量"><a href="#静态成员变量" class="headerlink" title="静态成员变量"></a>静态成员变量</h3><ul>
+<li>存储在数据段（全局区，类似于全局变量），整个程序运行过程中只有一份内存</li>
+<li>对比全局变量，它可以设定访问权限（public、protected、private），达到局部共享的目的</li>
+<li>必须初始化，必须在类外面初始化，初始化时不能带static，如果类的声明和实现分离（在实现.cpp中初始化）</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Car &#123;
+public:
+	static int m_price;
+	void run() &#123;
+		cout &lt;&lt; &quot;run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+&#x2F;&#x2F;在类外面初始化静态成员变量
+int Car::m_price &#x3D; 10;
+
+int main() &#123;
+	Car car1;
+	car1.m_price &#x3D; 100;
+	cout &lt;&lt; car1.m_price &lt;&lt; endl;
+	cout &lt;&lt; Car::m_price &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175547.png" alt="image-20201112165215454"></p>
+<h3 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h3><ul>
+<li>内部不能使用this指针（this指针只能用在非静态成员函数内部）</li>
+<li>不能是虚函数（虚函数只能是非静态成员函数）</li>
+<li>内部不能访问非静态成员变量\函数，只能访问静态成员变量\函数</li>
+<li>非静态成员函数内部可以访问静态成员变量\函数</li>
+<li>构造函数、析构函数不能是静态</li>
+<li>当声明和实现分离时，实现部分不能带static</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Car &#123;
+public:
+	static int m_price;
+	static void run() &#123;
+		cout &lt;&lt; &quot;run()&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+&#x2F;&#x2F;在类外面初始化静态成员变量
+int Car::m_price &#x3D; 10;
+
+int main() &#123;
+	Car car1;
+	car1.run();
+	Car * p &#x3D; new Car();
+	p-&gt;run();
+	Car::run();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175548.png" alt="image-20201112165924750"></p>
+<h3 id="静态成员应用"><a href="#静态成员应用" class="headerlink" title="静态成员应用"></a>静态成员应用</h3><p>例：</p>
+<p>现在有个需求是统计创建了多少个Car对象。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Car &#123;
+private:
+	static int m_count;
+public:
+	Car() &#123;
+		m_count++;
+	&#125;
+	~Car() &#123;
+		m_count--;
+	&#125;
+	static int getCount() &#123;
+		return m_count;
+	&#125;
+&#125;;
+
+&#x2F;&#x2F;在类外面初始化静态成员变量
+int Car::m_count &#x3D; 0;
+
+Car g_car;  &#x2F;&#x2F;创建了第一个Car对象
+
+int main() &#123;
+	Car car1;  &#x2F;&#x2F;创建了第二个Car对象
+	Car * p &#x3D; new Car();  &#x2F;&#x2F;创建了第三个Car对象
+	cout &lt;&lt; Car::getCount() &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175549.png" alt="image-20201112211102622"></p>
+<h2 id="const-成员"><a href="#const-成员" class="headerlink" title="const 成员"></a>const 成员</h2><p>const成员：被const修饰的成员变量、非静态成员函数。</p>
+<p><strong>const成员变量</strong></p>
+<ul>
+<li><p>必须初始化（类内部初始化），可以在声明的时候直接初始化赋值</p>
+</li>
+<li><p>非static的const成员变量还可以在初始化列表中初始化</p>
+<p>const成员函数（非静态）</p>
+</li>
+</ul>
+<p><strong>const关键字写在参数列表后面，函数的声明和实现都必须带const</strong></p>
+<ul>
+<li>内部不能修改非static成员变量</li>
+<li>内部只能调用const成员函数、static成员函数</li>
+<li>  非const成员函数可以调用const成员函数</li>
+</ul>
+<p>const成员函数和非const成员函数构成重载<br>非const对象（指针）优先调用非const成员函数<br>const对象（指针）只能调用const成员函数、static成员函数</p>
+<h2 id="引用类型成员"><a href="#引用类型成员" class="headerlink" title="引用类型成员"></a>引用类型成员</h2><p>引用类型成员变量必须初始化（不考虑static情况）</p>
+<ul>
+<li>在声明的时候直接初始化</li>
+<li>通过初始化列表初始化</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175550.png" alt="image-20201117173904291"></p>
+<h2 id="拷贝构造函数（Copy-Constructor）"><a href="#拷贝构造函数（Copy-Constructor）" class="headerlink" title="拷贝构造函数（Copy Constructor）"></a>拷贝构造函数（Copy Constructor）</h2><p>拷贝构造函数是构造函数的一种.</p>
+<p> 当利用已存在的对象创建一个新对象时（类似于拷贝），就会调用新对象的拷贝构造函数进行初始化.</p>
+<p>拷贝构造函数的格式是固定的，接收一个const引用作为参数.</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Car &#123;
+	int m_price;
+	int m_length;
+public:
+	Car(int price &#x3D; 0, int length &#x3D; 0) :m_price(price), m_length(length) &#123;
+		cout &lt;&lt; &quot;Car(int price &#x3D; 0, int length &#x3D; 0)&quot; &lt;&lt; endl;
+	&#125;
+
+	&#x2F;&#x2F;拷贝构造函数，格式固定
+	Car(const Car &amp;car) &#123;
+		cout &lt;&lt; &quot;Car(const Car &amp;car)&quot; &lt;&lt; endl;
+	&#125;
+
+	void display() &#123;
+		cout &lt;&lt; &quot;price&#x3D;&quot; &lt;&lt; m_price &lt;&lt; &quot;, length&#x3D;&quot; &lt;&lt; m_length &lt;&lt; endl;
+	&#125;
+&#125;;
+
+int main() &#123;
+	Car car1;
+	Car car2(100);
+	Car car3(100, 50);
+
+	&#x2F;&#x2F;利用已经存在的car3对象创建了一个car4新对象
+	&#x2F;&#x2F;car4初始化时只会调用拷贝构造函数
+	Car car4(car3);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175551.png" alt="image-20201117211100223"></p>
+<p>默认情况下不写拷贝构造函数也可以进行拷贝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175552.png" alt="image-20201117211236889"></p>
+<h3 id="调用父类的拷贝构造函数"><a href="#调用父类的拷贝构造函数" class="headerlink" title="调用父类的拷贝构造函数"></a>调用父类的拷贝构造函数</h3><p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Person &#123;
+
+public:
+	int m_age;
+	Person(int age&#x3D;0) :m_age(age)&#123;&#125;
+	&#x2F;&#x2F;父类的拷贝构造函数
+	Person(const Person &amp;person) :m_age(person.m_age)&#123;&#125;
+&#125;;
+
+class Student : public Person &#123;
+
+public:
+	int m_score;
+	&#x2F;&#x2F;子类调用父类的构造函数
+	Student(int age&#x3D;0, int score&#x3D;0) :Person(age), m_score(score)&#123;&#125;
+	&#x2F;&#x2F;子类调用父类的拷贝构造函数
+	Student(const Student &amp;student) :Person(student), m_score(student.m_score)&#123;&#125;
+&#125;;
+
+int main()&#123;
+	Student student1(10, 100);
+	Student student2(student1);
+	cout &lt;&lt; student2.m_age &lt;&lt; endl;
+	cout &lt;&lt; student2.m_score &lt;&lt; endl;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175553.png" alt="image-20201118215515501"></p>
+<p>默认情况下不写拷贝构造函数也可以调用父类的拷贝构造函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175554.png" alt="image-20201118215642294"></p>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>编译器默认的提供的拷贝是浅拷贝（shallow copy）</p>
+<ul>
+<li>将一个对象中所有成员变量的值拷贝到另一个对象</li>
+<li>如果某个成员变量是个指针，只会拷贝指针中存储的地址值，并不会拷贝指针指向的内存空间</li>
+<li>可能会导致堆空间多次free的问题</li>
+</ul>
+<p>如果需要实现深拷贝（deep copy），就需要自定义拷贝构造函数</p>
+<ul>
+<li>将指针类型的成员变量所指向的内存空间，拷贝到新的内存空间</li>
+</ul>
+<h2 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h2><p>匿名对象：没有变量名、没有被指针指向的对象，用完后马上调用析构</p>
+<h2 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h2><p>友元包括友元函数和友元类</p>
+<ul>
+<li>如果将函数A（非成员函数）声明为类C的友元函数，那么函数A就能直接访问类C对象的所有成员</li>
+<li> 如果将类A声明为类C的友元类，那么类A的所有成员函数都能直接访问类C对象的所有成员</li>
+<li>友元破坏了面向对象的封装性，但在某些频繁访问成员变量的地方可以提高性能</li>
+</ul>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Point &#123;
+	int m_x;
+	int m_y;
+public:
+	int getX() &#123;
+		return m_x;
+	&#125;;
+	int getY() &#123;
+		return m_y;
+	&#125;;
+	Point(int x , int y): m_x(x),m_y(y)&#123;&#125;
+	void display() &#123;
+		cout &lt;&lt; &quot;(&quot; &lt;&lt; m_x &lt;&lt; &quot;, &quot; &lt;&lt; m_y &lt;&lt; &quot;)&quot; &lt;&lt;endl;
+	&#125;
+&#125;;
+
+Point add(Point p1, Point p2) &#123;
+	return Point(p1.getX() + p2.getX(), p1.getY() + p2.getY());
+&#125;
+
+int main() &#123;
+	Point P1(10, 20);
+	Point P2(20, 30);
+	Point P3 &#x3D; add(P1, P2);
+	P3.display();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175555.png" alt="image-20201120002440857"></p>
+<p>上述代码使用了get方法去获取Point类中的私有成员变量，假设需要频繁的访问，可以将add方法设置为Point类的友元函数，这样add方法就可以直接访问Point类的私有成员变量。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Point &#123;
+	friend Point add(Point p1, Point p2);
+	int m_x;
+	int m_y;
+public:
+	int getX() &#123;
+		return m_x;
+	&#125;;
+	int getY() &#123;
+		return m_y;
+	&#125;;
+	Point(int x , int y): m_x(x),m_y(y)&#123;&#125;
+	void display() &#123;
+		cout &lt;&lt; &quot;(&quot; &lt;&lt; m_x &lt;&lt; &quot;, &quot; &lt;&lt; m_y &lt;&lt; &quot;)&quot; &lt;&lt;endl;
+	&#125;
+&#125;;
+
+Point add(Point p1, Point p2) &#123;
+	return Point(p1.m_x + p2.m_x, p1.m_y + p2.m_y);
+&#125;
+
+int main() &#123;
+	Point P1(10, 20);
+	Point P2(20, 30);
+	Point P3 &#x3D; add(P1, P2);
+	P3.display();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175556.png" alt="image-20201120002914113"></p>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>如果将类A定义在类C的内部，那么类A就是一个内部类（嵌套类）。</p>
+<p><strong>内部类的特点：</strong></p>
+<ul>
+<li><p>支持public、protected、private权限</p>
+</li>
+<li><p>成员函数可以直接访问其外部类对象的所有成员（反过来则不行）</p>
+</li>
+<li><p>成员函数可以直接不带类名、对象名访问其外部类的static成员</p>
+</li>
+<li><p>不会影响外部类的内存布局</p>
+</li>
+<li><p>可以在外部类内部声明，在外部类外面进行定义</p>
+</li>
+</ul>
+<h2 id="局部类"><a href="#局部类" class="headerlink" title="局部类"></a>局部类</h2><p>在一个函数内部定义的类，称为局部类。</p>
+<p><strong>局部类的特点：</strong></p>
+<ul>
+<li>作用域仅限于所在的函数内部</li>
+<li>其所有的成员必须定义在类内部，不允许定义static成员变量</li>
+<li>成员函数不能直接访问函数的局部变量（static变量除外）</li>
+</ul>
+<h1 id="其他语法"><a href="#其他语法" class="headerlink" title="其他语法"></a>其他语法</h1><h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2><p>运算符重载（操作符重载）：可以为运算符增加一些新的功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175557.png" alt="image-20201120215046404"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175558.png" alt="image-20201120215151814"></p>
+<p>全局函数、成员函数都支持运算符重载。</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><ul>
+<li>异常是一种在程序运行过程中可能会发生的错误（比如内存不够）</li>
+<li>异常没有被处理，会导致程序终止</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175559.png" alt="image-20201120231614967"></p>
+<p>throw异常后，会在当前函数中查找匹配的catch，找不到就终止当前函数代码，去上一层函数中查找。如果最终都找不到匹配的catch，整个程序就会终止。</p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int divide(int v1, int v2) &#123;
+	if (v2 &#x3D;&#x3D; 0)
+	&#123;
+		throw &quot;不能除以0&quot;;
+	&#125;
+	return v1 &#x2F; v2;
+&#125;
+
+int main() &#123;
+	try &#123;
+		int a &#x3D; 10;
+		int b &#x3D; 0;
+		divide(a, b);
+	&#125;
+	catch (...) &#123;
+		cout &lt;&lt; &quot;运算错误&quot; &lt;&lt; endl;
+	&#125;
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175600.png" alt="image-20201121000503772"></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int divide(int v1, int v2) &#123;
+	if (v2 &#x3D;&#x3D; 0)
+	&#123;
+		throw &quot;不能除以0&quot;;
+	&#125;
+	return v1 &#x2F; v2;
+&#125;
+
+int main() &#123;
+	try &#123;
+		int a &#x3D; 10;
+		int b &#x3D; 0;
+		divide(a, b);
+	&#125;
+	catch (const char * exception) &#123;
+		cout &lt;&lt; &quot;运算错误:&quot; &lt;&lt; exception &lt;&lt; endl;
+	&#125;
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175601.png" alt="image-20201121171409598"></p>
+<p><strong>自定义异常类型</strong></p>
+<p>例：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+class Exception &#123;
+public:
+	virtual const char * what() &#x3D; 0;
+&#125;;
+
+class DivideException : public Exception &#123;
+public:
+	const char* what() &#123;
+		return &quot;不能除以0&quot;;
+	&#125;
+&#125;;
+
+class AddException : public Exception &#123;
+public:
+	const char* what() &#123;
+		return &quot;加法有问题&quot;;
+	&#125;
+&#125;;
+
+int divide(int v1, int v2) &#123;
+	if (v2 &#x3D;&#x3D; 0)
+	&#123;
+		throw DivideException();
+	&#125;
+	return v1 &#x2F; v2;
+&#125;
+
+int main() &#123;
+	try &#123;
+		int a &#x3D; 10;
+		int b &#x3D; 0;
+		divide(a, b);
+	&#125;
+	catch (DivideException exception) &#123;
+		cout &lt;&lt; &quot;产生了异常:&quot; &lt;&lt; exception.what() &lt;&lt; endl;
+	&#125;
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175602.png" alt="image-20201121173908311"></p>
+<p><strong>标准异常（std）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175603.png" alt="image-20201121172655264"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175604.png" alt="image-20201121172706592"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122175605.png" alt="image-20201121173102248"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">darkless</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://darkless.cn/2020/11/22/cPlus-learn-note/">https://darkless.cn/2020/11/22/cPlus-learn-note/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">darkless</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/c/">
+                                    <span class="chip bg-color">c++</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo," data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '4u9UM1IWQmMfo0svsgBdeILp-gzGzoHsz',
+        appKey: 'cEUGC0oJ83lMp2x7xeHBvM41',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '本站带邮件回复功能 填写邮箱后 可以收到评论回复提醒'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/11/22/cPlus-learn-note/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo/20201122180717.png" class="responsive-img" alt="C++学习笔记">
+                        
+                        <span class="card-title">C++学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    编程
+                                </a>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/c/" class="post-category">
+                                    c++
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/29/php-unserialize-Escape-character/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/handbye/images/picgo20200929173535.png" class="responsive-img" alt="浅析php反序列化字符串逃逸">
+                        
+                        <span class="card-title">浅析php反序列化字符串逃逸</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web%E5%AE%89%E5%85%A8/" class="post-category">
+                                    web安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                        <span class="chip bg-color">反序列化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2021</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">darkless</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">101.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/handbye" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:hand01@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

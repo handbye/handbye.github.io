@@ -1,0 +1,1671 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="分类: 路由交换, darkless,网络安全">
+    <meta name="description" content="网络与信息安全博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>分类: 路由交换 | Darkless</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Darkless" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Darkless</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fab fa-internet-explorer" style="zoom: 0.6;"></i>
+      
+      <span>Web安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fas fa-network-wired" style="zoom: 0.6;"></i>
+      
+      <span>网络安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+      
+      <i class="fas fa-random" style="zoom: 0.6;"></i>
+      
+      <span>路由交换</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/my-docs" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>Docs</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Darkless</div>
+        <div class="logo-desc">
+            
+            网络与信息安全博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-internet-explorer"></i>
+			
+			Web安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-network-wired"></i>
+			
+			网络安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-random"></i>
+			
+			路由交换
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/my-docs" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			Docs
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                网络与信息安全
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['',''],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+    </div>
+</div>
+
+<main class="content">
+
+    
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/%E6%97%A5%E5%B8%B8/" title="日常: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">日常
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" title="路由交换: 30">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F5EEF8;">路由交换
+                        <span class="tag-length">30</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E6%97%A5%E5%B8%B8/bug%E8%A7%A3%E5%86%B3/" title="bug解决: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">bug解决
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" title="路由协议: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">路由协议
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE/" title="应用层协议: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">应用层协议
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/MPLS/" title="MPLS: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">MPLS
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%B8%89%E5%B1%82%E5%8D%8F%E8%AE%AE/" title="三层协议: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">三层协议
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BA%8C%E5%B1%82%E5%8D%8F%E8%AE%AE/" title="二层协议: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">二层协议
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E9%93%BE%E8%B7%AF%E5%B1%82/" title="链路层: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #A3E4D7;">链路层
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" title="网络安全: 14">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">网络安全
+                        <span class="tag-length">14</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/ipv6/" title="ipv6: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8C471;">ipv6
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E9%AB%98%E5%8F%AF%E9%9D%A0/" title="高可靠: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9E79F;">高可靠
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/wlan/" title="wlan: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">wlan
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/linux/" title="linux: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">linux
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/VPN/" title="VPN: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">VPN
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/NAT/" title="NAT: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">NAT
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/python/" title="python: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8C471;">python
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E6%97%A5%E5%B8%B8/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" title="工具使用: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">工具使用
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/" title="web安全: 28">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">web安全
+                        <span class="tag-length">28</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/IPSEC/" title="IPSEC: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">IPSEC
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BC%96%E7%A8%8B/" title="编程: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">编程
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/ARP/" title="ARP: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">ARP
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%98%B2%E7%81%AB%E5%A2%99/" title="防火墙: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9E79F;">防火墙
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/DHCP/" title="DHCP: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">DHCP
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/python/%E7%88%AC%E8%99%AB/" title="爬虫: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">爬虫
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/python/django/" title="django: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">django
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/DVWA/" title="DVWA: 11">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #85C1E9;">DVWA
+                        <span class="tag-length">11</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BC%96%E7%A8%8B/python/" title="python: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8C471;">python
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/SQLi/" title="SQLi: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">SQLi
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">文件上传
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/bypass%E6%96%B9%E6%B3%95/" title="bypass方法: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">bypass方法
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="漏洞复现: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">漏洞复现
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/" title="安全工具: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">安全工具
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" title="逻辑漏洞: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">逻辑漏洞
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" title="漏洞挖掘: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #A3E4D7;">漏洞挖掘
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" title="工具使用: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">工具使用
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/web%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="代码审计: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">代码审计
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%BC%96%E7%A8%8B/c/" title="c++: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">c++
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/03/30/segment-Routing/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="segment Routing简介">
+                            
+                            <span class="card-title">segment Routing简介</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                segment Routing简介segment routing 是基于源路由技术理念设计的一种在网络上转发数据包的协议。它将代表转发路径的序列号编码在数据包头部使用IGP或BGP协议进行传递，沿途设备收到数据包后解码头部的信息，如果头部标
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    路由协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/segmentRouting/">
+                            <span class="chip bg-color">segmentRouting</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/12/13/how-router-frame-forward/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="路由器收到一个数据帧后的处理过程">
+                            
+                            <span class="card-title">路由器收到一个数据帧后的处理过程</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                路由器是一个三层设备，当它收到一个数据帧时是如何处理的呢？
+数据帧有三种：
+
+单播帧
+广播帧（路由器是隔离广播域的，所以路由器只会处理ARP广播报文）
+组播帧
+
+路由器对以上三种帧的处理情况如下：
+若收到一个二层单播帧，对于路由器来讲，是一
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-category">
+                                    链路层
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%B8%A7%E5%A4%84%E7%90%86/">
+                            <span class="chip bg-color">帧处理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/06/22/mpls-Lsp-create/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="mpls Lsp的建立">
+                            
+                            <span class="card-title">mpls Lsp的建立</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                mpls lsp的建立介绍完了mpls基础部分，想必大家对mpls应该有了初步的了解。mpls中最重要的一个元素就是标签，因为mpls就是靠标签来完成数据报文的转发的。怎么为一个FEC来分配标签呢，有两种方法:静态（手工）分配标签，动态分配
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/MPLS/" class="post-category">
+                                    MPLS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MPLS/">
+                            <span class="chip bg-color">MPLS</span>
+                        </a>
+                        
+                        <a href="/tags/lsp/">
+                            <span class="chip bg-color">lsp</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/03/23/MPLS-summary/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MPLS基础总结">
+                            
+                            <span class="card-title">MPLS基础总结</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                出现背景：MPLS(Multiprotocol Label Switching)多协议标签交换，mpls的出现主要是因为上世纪90年代传统ip路由转发出现瓶颈，MPLS最初是为了提高路由器的转发速度而提出的。与传统IP路由方式相比，它在数据
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-03-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/MPLS/" class="post-category">
+                                    MPLS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mpls/">
+                            <span class="chip bg-color">mpls</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/09/13/cisco-management-protocol/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Cisco的一些管理协议">
+                            
+                            <span class="card-title">Cisco的一些管理协议</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                syslogsyslog 是日志服务功能。在思科的路由器上是默认打开的
+logging on
+但console下的syslog功能是默认关闭的。打开命令：logging console
+syslog有七个级别：
+
+
+每个日志消息被关联一个严
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-09-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    应用层协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/cisco/">
+                            <span class="chip bg-color">cisco</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE/">
+                            <span class="chip bg-color">管理协议</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/06/19/2layer-3layer-forward-diff/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="二层转发和三层转发的区别">
+                            
+                            <span class="card-title">二层转发和三层转发的区别</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                数据包在网络中进行数据包的转发时，有时会进行二层转发有时会进行三层转发。但这两种转发的原理是什么，有什么区别呢？
+我们知道两台设备在进行数据通信之前必须有两个地址：IP地址和MAC地址。IP地址用来做三层的封装，MAC地址用来做二层的封装。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-06-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E4%BA%8C%E4%B8%89%E5%B1%82%E8%BD%AC%E5%8F%91/">
+                            <span class="chip bg-color">二三层转发</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/06/16/istack-intro/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="堆叠简介">
+                            
+                            <span class="card-title">堆叠简介</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                堆叠的过程和VRRP组形成的过程很类似，大体包括：主备的选举（在VRRP中选举出主设备后其余的都是被设备，在堆叠中除了选举主设备和备设备还要选举从设备），拓扑收集，状态同步（在堆叠中需要同步版本信息和配置信息），稳定运行，成员的加入与退出等
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-06-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E9%AB%98%E5%8F%AF%E9%9D%A0/" class="post-category">
+                                    高可靠
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A0%86%E5%8F%A0/">
+                            <span class="chip bg-color">堆叠</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/01/21/MPLS-control-plane-forwarding-plane/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="MPLS控制平面和数据平面">
+                            
+                            <span class="card-title">MPLS控制平面和数据平面</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                MPLS 的体系结构由控制平面（Control Plane）和转发平面（Forwarding Plane）组成。MPLS 体系结构如图。
+
+控制平面是无连接的，主要功能是负责产生和维护路由信息以及标签信息。
+控制平面中IP 路由协议（IP 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/MPLS/" class="post-category">
+                                    MPLS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MPLS/">
+                            <span class="chip bg-color">MPLS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/01/18/ppp-ospf-BGP-LDP-state-summary/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ppp，ospf，BGP,LDP状态机总结">
+                            
+                            <span class="card-title">ppp，ospf，BGP,LDP状态机总结</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ppp状态机
+
+Dead阶段为物理链路不可用阶段，当设备通电，两端物理链路up，就从Dead阶段变为Establish阶段即链路建立阶段。
+在Establish阶段进行lcp的协商，协商内容包括最大接收单元MRU、认证方式、魔术字（Magi
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-01-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%B8%89%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    三层协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ospf/">
+                            <span class="chip bg-color">ospf</span>
+                        </a>
+                        
+                        <a href="/tags/ppp/">
+                            <span class="chip bg-color">ppp</span>
+                        </a>
+                        
+                        <a href="/tags/bgp/">
+                            <span class="chip bg-color">bgp</span>
+                        </a>
+                        
+                        <a href="/tags/ldp/">
+                            <span class="chip bg-color">ldp</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/">
+                            <span class="chip bg-color">状态机</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2017/01/13/ospf-FA-address/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ospf FA地址浅谈">
+                            
+                            <span class="card-title">ospf FA地址浅谈</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                FA地址（Forwarding Address）是在ospf五类lsa和七类lsa中携带，用来在区域间防止次优路径的产生和环路的发生。
+五类LSA中的FA地址：
+
+
+本例中如果没有FA地址，那么将这条静态路由引入到OSPF中后，对于ospf
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-01-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    路由协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ospf/">
+                            <span class="chip bg-color">ospf</span>
+                        </a>
+                        
+                        <a href="/tags/FA-address/">
+                            <span class="chip bg-color">FA-address</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2016/12/19/STP-RST-diff/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="STP和RSTP的比较">
+                            
+                            <span class="card-title">STP和RSTP的比较</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一，端口角色不同：
+STP有是那种端口角色：Root Port , Destinaged Port, Alternate Port.
+RSTP在STP的基础上增加了两种端口角色：Backup Port ,Edge Port.
+在RSTP中A
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-12-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BA%8C%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    二层协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/rstp/">
+                            <span class="chip bg-color">rstp</span>
+                        </a>
+                        
+                        <a href="/tags/stp/">
+                            <span class="chip bg-color">stp</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2016/12/18/one-img-STP-BPDU/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="一张图详解STP配置BPDU">
+                            
+                            <span class="card-title">一张图详解STP配置BPDU</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+配置BPDU内容：
+
+最重要的四个参数：
+
+Root Identifier:发送此配置BPDU的交换机所认为的根交换机的交换机标识
+
+Root Path Cost:从发送此配置BPDU的交换机到达根交换机的最短路径总开销，含交换机根端口的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-12-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" class="post-category">
+                                    路由交换
+                                </a>
+                                
+                                <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BA%8C%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="post-category">
+                                    二层协议
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/BPDU/">
+                            <span class="chip bg-color">BPDU</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 3</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2021</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">darkless</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">101.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/handbye" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:hand01@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1577 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vauditdemo代码审计记录, darkless,网络安全">
+    <meta name="description" content="网络与信息安全博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>vauditdemo代码审计记录 | Darkless</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Darkless" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Darkless</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fab fa-internet-explorer" style="zoom: 0.6;"></i>
+      
+      <span>Web安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+      
+      <i class="fas fa-network-wired" style="zoom: 0.6;"></i>
+      
+      <span>网络安全</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+      
+      <i class="fas fa-random" style="zoom: 0.6;"></i>
+      
+      <span>路由交换</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/my-docs" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>Docs</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Darkless</div>
+        <div class="logo-desc">
+            
+            网络与信息安全博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/web%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-internet-explorer"></i>
+			
+			Web安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-network-wired"></i>
+			
+			网络安全
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-random"></i>
+			
+			路由交换
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/my-docs" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			Docs
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/handbye/images/picgocodeaudit_head.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">vauditdemo代码审计记录</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vauditdemo/">
+                                <span class="chip bg-color">vauditdemo</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/web%E5%AE%89%E5%85%A8/" class="post-category">
+                                web安全
+                            </a>
+                        
+                            <a href="/categories/web%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="post-category">
+                                代码审计
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-02
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="vauditDemo代码审计"><a href="#vauditDemo代码审计" class="headerlink" title="vauditDemo代码审计"></a>vauditDemo代码审计</h2><p>本片博客记录vauditDemo的代码审计过程，初学代码审计，记录下来方便回看。vauditDemo地址：<a target="_blank" rel="noopener" href="https://github.com/virink/VAuditDemo">https://github.com/virink/VAuditDemo</a>, 这个是大牛virink写的一款练习代码审计的靶场，作者本人也有配套的视频教程，配合食用，味道更佳。</p>
+<h2 id="通读源码"><a href="#通读源码" class="headerlink" title="通读源码"></a>通读源码</h2><p>对于这种代码不是很多的CMS,通读源码未尝不是一个好方法，在读源码的过程中能够更好的了解整个CMS的架构以及业务逻辑，为接下来的代码审计铺平道路。靶场作者在课上也提到了这种方法。</p>
+<h3 id="靶场整体框架"><a href="#靶场整体框架" class="headerlink" title="靶场整体框架"></a>靶场整体框架</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">├── about.inc                                     ---说明信息
+├── admin                                           ---管理员目录
+│   ├── captcha.php
+│   ├── delAdmin.php
+│   ├── delUser.php
+│   ├── index.php
+│   ├── logCheck.php
+│   ├── login.php
+│   ├── manageAdmin.php
+│   ├── manageCom.php
+│   ├── manage.php
+│   ├── manageUser.php
+│   ├── php_errors.log
+│   └── ping.php
+├── css                                                   --- css文件
+│   ├── bootstrap.css
+│   ├── bootstrap.min.css
+│   ├── bootswatch.less
+│   ├── bootswatch.min.css
+│   └── variables.less
+├── footer.php                              ---页脚
+├── header.php                           ----页头
+├── images                                    ---图片目录
+│   └── default.jpg
+├── index.php                              ---入口文件
+├── <span class="token function">install</span>                                      ---安装文件
+│   ├── install.php
+│   └── install.sql
+├── js                                               ---js文件
+│   ├── bootstrap.min.js
+│   ├── bootswatch.js
+│   ├── bsa.js
+│   └── check.js
+├── messageDetail.php           ---留言详情页面
+├── message.php                       ---留言页面
+├── messageSub.php               ---留言页面
+├── search.php                           ----搜索页面
+├── sys                                            ---配置目录
+│   ├── config.php
+│   ├── install.lock
+│   └── lib.php
+├── uploads                              -----图片上传目录
+└── user                                     -----普通用户目录
+    ├── avatar.php
+    ├── edit.php
+    ├── logCheck.php
+    ├── login.php
+    ├── logout.php
+    ├── regCheck.php
+    ├── reg.php
+    ├── updateAvatar.php
+    ├── updateName.php
+    ├── updatePass.php
+    └── user.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1.入口文件index.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-8-52" alt="2019-12-2-17-8-52"></p>
+<p>首先包含了config.php和header.php，然后就是包含了关于页面，入口文件很简单，没啥好说的，但要注意的是这里存在<code>include</code>函数，可能有任意文件包含的风险。</p>
+<p>2.配置文件config.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-17-48" alt="2019-12-2-17-17-48"></p>
+<p>检查当前目录下是否存在install.lock文件，不存在的话就跳转到install.php页面，然后包含了<code>lib.php</code>文件，数据库的配置信息也在此文件中。</p>
+<p>3.lib.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-22-50" alt="2019-12-2-17-22-50"></p>
+<p>此文件下主要是一些过滤函数用来过滤用户输入，这些过滤函数可能存在bypass的可能。</p>
+<blockquote>
+<p>注意这里的sec函数对全局GET,POST,COOKIE等输入做了过滤。</p>
+</blockquote>
+<p>4.header.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-24-39" alt="2019-12-2-17-24-39"></p>
+<p>根据session判断是普通用户还是管理员，将其的名字显示到页面上，然后就是登录和注册链接。</p>
+<p>5.reg.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-32-4" alt="2019-12-2-17-32-4"></p>
+<p>主要是一些表单信息，信息提交到regCheck.php去做校验。</p>
+<p>6.regCheck.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-2-17-44-28" alt="2019-12-2-17-44-28"></p>
+<p>使用clean_input函数过滤了用户注册的用户名和密码，防止注册含有特殊字符的用户名，这里可以考虑bypass <code>clean_input</code>函数。</p>
+<p>7.user.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-10-49-28" alt="2019-12-3-10-49-28"></p>
+<p>根据username从数据库中查询对应的userid。</p>
+<p>8.message.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-10-56-38" alt="2019-12-3-10-56-38"></p>
+<p>从数据库中获取留言信息展示到页面上，这里的用户名和留言内容都使用了<code>htmlspecialchars</code>转义，基本排除了留言板存在xss的可能。</p>
+<p>9.messagesub.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-11-0-13" alt="2019-12-3-11-0-13"></p>
+<p>将用户留言信息插入到数据库中，使用cleaninput函数过滤了留言信息，但是这里可能存在bypass注入。</p>
+<p>10.search.php</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-11-4-38" alt="2019-12-3-11-4-38"></p>
+<p>根据用户输入搜索留言，这里使用了<code>sec</code>函数对用户输入进行了过滤。</p>
+<p>以上就是重要代码的通读，接下来详解每个漏洞的形成过程。</p>
+<h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>此靶场在使用前需要先安装，其实安装就是创建数据库并写入一些sql语句的过程，此安装文件在判断数据库已经安装完成后并未直接退出，导致下面的代码依旧可以执行，存在敏感信息泄露。</p>
+<p><strong>install.php</strong></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-11-18-21" alt="2019-12-3-11-18-21"></p>
+<p><strong>复现：</strong></p>
+<p>使用burpsuite抓包，访问install.php,查看响应结果。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-14-26-41" alt="2019-12-3-14-26-41"></p>
+<p>render后的结果：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-14-27-16" alt="2019-12-3-14-27-16"></p>
+<p>可看到已经泄露了一些敏感信息。</p>
+<h2 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h2><p>在admin目录下有一个ping.php文件，这个页面的功能是在后台执行ping命令。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-7-20" alt="2019-12-3-17-7-20"></p>
+<p>执行正常的命令：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-9-10" alt="2019-12-3-17-9-10"></p>
+<p>查看<strong>ping.php</strong>文件：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-10-3" alt="2019-12-3-17-10-3"></p>
+<p>代码并未对<code>target</code>做任何过滤，这样就可以进行命令拼接从而达到命令执行的效果。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-11-30" alt="2019-12-3-17-11-30"></p>
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>全局搜索查看可能存在注入的语句：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-44-38" alt="2019-12-3-17-44-38"></p>
+<p>转到<strong>messageDetail.php</strong>：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-47-4" alt="2019-12-3-17-47-4"></p>
+<p>使用sqlwaf函数对id进行了过滤，查看sqlwaf函数：</p>
+<p>转到<strong>lib.php</strong>：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-17-48-28" alt="2019-12-3-17-48-28"></p>
+<p>这个函数对常见的sql注入语句进行了替换。</p>
+<p>这里将<code>||</code>替换为空字符串，那不就可以使用<code>sele||ct</code>这种方式去绕过对<code>select</code>的过滤。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-3-22-33-54" alt="2019-12-3-22-33-54"></p>
+<h2 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h2><p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-10-53-48" alt="2019-12-4-10-53-48"></p>
+<p>有个管理员可以查看普通用户的用户名和ip地址的页面，我们看下用户名和ip地址分别是怎么获取的。</p>
+<p>转到<strong>manageUser.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-10-56-29" alt="2019-12-4-10-56-29"></p>
+<p>是从数据库中查询出来的，但是用户名经过了<code>htmlspecialchars</code>的转义，继续查找ip地址是怎么传入数据库的。</p>
+<p>转到<strong>logCheck.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-11-2-4" alt="2019-12-4-11-2-4"></p>
+<p>login_ip是使用<code>get_client_ip</code>函数获取的，并且经过了<code>sqlwaf</code>函数的过滤。</p>
+<p>继续查看<code>get_client_ip</code>函数：</p>
+<p>转到<strong>lib.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-11-3-49" alt="2019-12-4-11-3-49"></p>
+<p>此函数从http头信息中提取<code>HTTP_CLIENT_IP</code>或者<code>HTTP_X_FORWARDED_FOR</code>等可以标记客户端地址的字段。</p>
+<p>那么就可以伪造这些信息，进而达到xss的效果。</p>
+<p>修改http头中的Client-IP值：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-12-40-30" alt="2019-12-4-12-40-30"></p>
+<p>普通用户登录后这个值就会保存到数据库中，当管理员去后台查看时，这个值就会展示到页面上，进而引起XSS.</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-12-42-41" alt="2019-12-4-12-42-41"></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-12-44-5" alt="2019-12-4-12-44-5"></p>
+<h2 id="登录爆破"><a href="#登录爆破" class="headerlink" title="登录爆破"></a>登录爆破</h2><p>管理员的登录页面存在验证码，当需要爆破密码进行登录时就需要识别验证码或者绕过验证码。</p>
+<p>转到<strong>admin/login.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-12-52-52" alt="2019-12-4-12-52-52"></p>
+<p>验证码是由<code>captcha.php</code>生成的，继续转到<strong>admin/logCheck.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-8-19" alt="2019-12-4-13-8-19"></p>
+<p>可以看到提交的验证码是与session中的验证码作比较的，而session中的验证码是由captcha.php生成的。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-9-49" alt="2019-12-4-13-9-49"></p>
+<p>若果不让其访问captcha.php，那<code>$_SESSION[&#39;captcha&#39;]</code>=null , 这样不就绕过了验证码的限制吗？</p>
+<p>登录并使用burp抓包：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-15-49" alt="2019-12-4-13-15-49"></p>
+<p>将请求包中的Cookie删除，这样重放的时候新seesion中的$_SESSION[‘captcha’]就会为空，所以也需要把captcha参数删除。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-25-17" alt="2019-12-4-13-25-17"></p>
+<p>将验证码和Cookie去掉，重放跳转到manage页面，说明绕过验证码成功，接下来就是正常的去爆破了。</p>
+<h2 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h2><p>转到<strong>avatar.php</strong>：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-41-36" alt="2019-12-4-13-41-36"></p>
+<p>存在<code>file_get_contents</code>函数，这个函数控制不好的话就会造成任意文件读取的发生。</p>
+<p>跟踪<code>$_SESSION[&#39;avatar&#39;]</code>来到user/logCheck.php。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-48-25" alt="2019-12-4-13-48-25"></p>
+<p><code>$_SESSION[&#39;avatar&#39;]</code>是从数据库中获取的，继续跟踪<code>user_avatar</code>看其是怎么插入到数据库中的。</p>
+<p>来到<strong>updateAvatar.php</strong>中发现了其插入语句：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-13-52-46" alt="2019-12-4-13-52-46"></p>
+<p>变量<code>$avatar</code>是由上传路径+时间戳+文件名三部分组成的，其中文件名是可控的。</p>
+<p>构造payload :</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token string single-quoted-string">', user_avatar = '</span><span class="token operator">.</span><span class="token operator">.</span><span class="token operator">/</span>sys<span class="token operator">/</span>config<span class="token operator">.</span>php<span class="token string single-quoted-string">' WHERE user_name = '</span>test'<span class="token comment">#.png  ,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将avatar更改为<code>../sys/config.php</code>即可读取这个文件的内容。</p>
+<p>burp抓取头像上传的数据包然后改包：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-14-43-47" alt="2019-12-4-14-43-47"></p>
+<p>上传后发现数据库中的数据变成了这样的：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-14-44-31" alt="2019-12-4-14-44-31"></p>
+<p>原因是文件名中不能包含路径信息，将文件名转换为16进制，重新上传。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-14-55-9" alt="2019-12-4-14-55-9"></p>
+<p>这样就成功了：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-14-55-40" alt="2019-12-4-14-55-40"></p>
+<p>接下来登录然后读取头像文件就可以看到config.php文件的内容。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-15-21-49" alt="2019-12-4-15-21-49"></p>
+<p>同样这个任意文件读取也可以访问任意外部链接的内容，从而达到SSRF的效果。</p>
+<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><p>转到**index.php,**使用了<code>include</code>函数包含about.inc文件。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-15-41-52" alt="2019-12-4-15-41-52"></p>
+<p>这里限制了后缀只能是<code>.inc</code>格式的，可以尝试使用伪协议绕过，关于伪协议的使用请参考：<a target="_blank" rel="noopener" href="https://lorexxar.cn/2016/09/14/php-wei/">https://lorexxar.cn/2016/09/14/php-wei/</a></p>
+<p>我这里使用<code>phar</code>伪协议。</p>
+<p>在上传文件处上传一个一句话木马，注意需要将木马文件后缀该为<code>.inc</code>，并将其压缩，压缩文件后缀该为<code>.png</code>格式。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-15-47-17" alt="2019-12-4-15-47-17"></p>
+<p>上传test.png，观察其上传时间，并将这个时间转换为时间戳：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-15-51-50" alt="2019-12-4-15-51-50"></p>
+<p>上传文件的名字是按照如下规则重命名的：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-15-53-7" alt="2019-12-4-15-53-7"></p>
+<p>所以我们上传的文件为：<code>/uploads/u_1575446707_test.png</code></p>
+<p>使用phar读取压缩包里面的test.inc文件：</p>
+<p>payload为：<code>phar://uploads/u_1575446707_test.png/test</code></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-6-38" alt="2019-12-4-16-6-38"></p>
+<p>成功上传一句话并执行命令成功。</p>
+<h2 id="越权"><a href="#越权" class="headerlink" title="越权"></a>越权</h2><p>后台有个更改用户名的地方，我们来看看这里是否存在越权的问题：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-21-22" alt="2019-12-4-16-21-22"></p>
+<p>跟踪<strong>edit.php</strong>来到<strong>updateName.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-22-32" alt="2019-12-4-16-22-32"></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-23-25" alt="2019-12-4-16-23-25"></p>
+<p>在<strong>updateName.php</strong>中发现了一个奇怪的问题，更新用户名时竟然不从session中获取user_id,而是可以接收用户post的id。这样就导致了可以修改任意用户用户名的越权问题。</p>
+<p>来修改下用户sss的用户名：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-27-57" alt="2019-12-4-16-27-57"></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-36-58" alt="2019-12-4-16-36-58"></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-37-18" alt="2019-12-4-16-37-18"></p>
+<p>可看到已将其用户名修改。</p>
+<h2 id="二次截断注入"><a href="#二次截断注入" class="headerlink" title="二次截断注入"></a>二次截断注入</h2><p>二次注入简而言之就是在存在单引号的情况下，利用双条件查询，利用前一个条件去闭合单引号，后一个条件就可以成为我们的payload。这里的关键是闭合单引号。</p>
+<p>来到<strong>messageSub.php</strong>:</p>
+<p>这个页面处理用户的留言信息，会将用户的留言信息提交到数据库中，使用了<code>clean_input</code>函数，但是并未使用<code>sqlwaf</code>函数过滤用户输入。</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-16-58-51" alt="2019-12-4-16-58-51"></p>
+<p><code>cleaninput</code>这个函数很奇怪，先是使用了<code>stripslashes</code>删除反斜杠，然后又使用<code>mysql_real_escape_string()</code>给特殊字符加上反斜杠。O__O “…</p>
+<p>如果我们能够注册一个用户名里面包含<code>\</code>,那就可以闭合valves中的第一个单引号，后面就可以插入payload的了。</p>
+<p>payload为：<code>,(select user()),now());#</code></p>
+<p>来到<strong>regCheck.php</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-21-27-5" alt="2019-12-4-21-27-5"></p>
+<p>使用<code>clean_input</code>函数过滤了用户名。</p>
+<p>我们注册一个<code>abcd\</code>用户：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-21-31-30" alt="2019-12-4-21-31-30"></p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-21-32-33" alt="2019-12-4-21-32-33"></p>
+<p>界面显示的是<code>abcd\\</code>,查看数据库是<code>abcd\</code>,说明用户名已注册成功。</p>
+<p>然后退出重新登陆：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-21-35-44" alt="2019-12-4-21-35-44"></p>
+<p>页面显示error,不必理会，现在已经登陆成功了。</p>
+<p>在留言页面填写payload：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-23-26-49" alt="2019-12-4-23-26-49"></p>
+<p>留言成功后，留言板即可显示payload执行的结果：</p>
+<p><img src="https://raw.githubusercontent.com/handbye/images/master/2019-12-4-23-27-46" alt="2019-12-4-23-27-46"></p>
+<p>至此全部漏洞的代码审计已经说明完毕，代码审计本是一个复杂的过程，文中有没说清楚的可结合视频学习。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">darkless</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://darkless.cn/2019/12/02/vauditdemo-codeview/">https://darkless.cn/2019/12/02/vauditdemo-codeview/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">darkless</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/vauditdemo/">
+                                    <span class="chip bg-color">vauditdemo</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo," data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '4u9UM1IWQmMfo0svsgBdeILp-gzGzoHsz',
+        appKey: 'cEUGC0oJ83lMp2x7xeHBvM41',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '本站带邮件回复功能 填写邮箱后 可以收到评论回复提醒'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/12/23/kuwomusic-xss/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="从微信群不良广告到酷我音乐存储型XSS再到乐视url跳转">
+                        
+                        <span class="card-title">从微信群不良广告到酷我音乐存储型XSS再到乐视url跳转</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web%E5%AE%89%E5%85%A8/" class="post-category">
+                                    web安全
+                                </a>
+                            
+                            <a href="/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" class="post-category">
+                                    漏洞挖掘
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/XSS/">
+                        <span class="chip bg-color">XSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/29/deepin-wechat-img-issue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="deepin 微信图片打开空白解决办法">
+                        
+                        <span class="card-title">deepin 微信图片打开空白解决办法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
+                                    日常
+                                </a>
+                            
+                            <a href="/categories/%E6%97%A5%E5%B8%B8/bug%E8%A7%A3%E5%86%B3/" class="post-category">
+                                    bug解决
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/deepin/">
+                        <span class="chip bg-color">deepin</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2021</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">darkless</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">101.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/handbye" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:hand01@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

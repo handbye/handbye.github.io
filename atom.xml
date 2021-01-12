@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Darkless</title>
+  
+  <subtitle>网络与信息安全</subtitle>
+  <link href="https://darkless.cn/atom.xml" rel="self"/>
+  
+  <link href="https://darkless.cn/"/>
+  <updated>2020-11-22T10:09:20.000Z</updated>
+  <id>https://darkless.cn/</id>
+  
+  <author>
+    <name>darkless</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++学习笔记</title>
+    <link href="https://darkless.cn/2020/11/22/cPlus-learn-note/"/>
+    <id>https://darkless.cn/2020/11/22/cPlus-learn-note/</id>
+    <published>2020-11-21T16:00:00.000Z</published>
+    <updated>2020-11-22T10:09:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;程序执行的本质&quot;&gt;&lt;a href=&quot;#程序执行的本质&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="编程" scheme="https://darkless.cn/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="c++" scheme="https://darkless.cn/categories/%E7%BC%96%E7%A8%8B/c/"/>
+    
+    
+    <category term="c++" scheme="https://darkless.cn/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅析php反序列化字符串逃逸</title>
+    <link href="https://darkless.cn/2020/09/29/php-unserialize-Escape-character/"/>
+    <id>https://darkless.cn/2020/09/29/php-unserialize-Escape-character/</id>
+    <published>2020-09-28T16:00:00.000Z</published>
+    <updated>2020-10-16T04:02:36.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;php序列化与反序列化&quot;&gt;&lt;a href=&quot;#php序列化与反序列化&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="php" scheme="https://darkless.cn/tags/php/"/>
+    
+    <category term="反序列化" scheme="https://darkless.cn/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CVE-2020-11651 SaltStack认证绕过分析</title>
+    <link href="https://darkless.cn/2020/08/11/saltstack-bypass-auth/"/>
+    <id>https://darkless.cn/2020/08/11/saltstack-bypass-auth/</id>
+    <published>2020-08-10T16:00:00.000Z</published>
+    <updated>2020-08-25T03:14:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="SaltStack" scheme="https://darkless.cn/tags/SaltStack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你还在忍受龟速下载吗?--mac上使用aria2的最佳实践</title>
+    <link href="https://darkless.cn/2020/07/29/aria2c-best-partice/"/>
+    <id>https://darkless.cn/2020/07/29/aria2c-best-partice/</id>
+    <published>2020-07-28T16:00:00.000Z</published>
+    <updated>2020-07-29T09:27:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;首发于freebuf：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日常" scheme="https://darkless.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="aria2" scheme="https://darkless.cn/tags/aria2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>thinkphp3.2.3 sql注入分析</title>
+    <link href="https://darkless.cn/2020/06/07/thinkphp3.2.3-sqli/"/>
+    <id>https://darkless.cn/2020/06/07/thinkphp3.2.3-sqli/</id>
+    <published>2020-06-06T16:00:00.000Z</published>
+    <updated>2020-07-30T05:10:42.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;2018年8月23号11:25分</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="SQL注入" scheme="https://darkless.cn/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="thinkphp" scheme="https://darkless.cn/tags/thinkphp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蚁剑自定义编码器和解码器来bypass waf</title>
+    <link href="https://darkless.cn/2020/05/19/antsword-bypass-waf/"/>
+    <id>https://darkless.cn/2020/05/19/antsword-bypass-waf/</id>
+    <published>2020-05-18T16:00:00.000Z</published>
+    <updated>2020-06-07T12:02:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="安全工具" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="AntSword" scheme="https://darkless.cn/tags/AntSword/"/>
+    
+    <category term="蚁剑" scheme="https://darkless.cn/tags/%E8%9A%81%E5%89%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DiscuzX3.3 authkey可爆破漏洞复现</title>
+    <link href="https://darkless.cn/2020/05/12/discuzx3.3-authkey-blasting/"/>
+    <id>https://darkless.cn/2020/05/12/discuzx3.3-authkey-blasting/</id>
+    <published>2020-05-11T16:00:00.000Z</published>
+    <updated>2020-06-04T05:57:58.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在看了一个师傅写的 &lt;code&gt;Discuz_X</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="Discuz" scheme="https://darkless.cn/tags/Discuz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一处有趣的php文件写入导致的getshell</title>
+    <link href="https://darkless.cn/2020/04/28/php-file-write/"/>
+    <id>https://darkless.cn/2020/04/28/php-file-write/</id>
+    <published>2020-04-27T16:00:00.000Z</published>
+    <updated>2020-06-04T07:46:54.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在审计一个名为熊海CMS的时候，发现了一处比较有趣的文件写入导致的getshell，所以记录一下分享出来。虽然利用条件有些鸡肋，但在遇到CMS安装页未删除并且可以重复安装的情况下倒是一个getshell的思路。&lt;/p&gt;
+&lt;p&gt;关键代码如下：&lt;/p&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞挖掘" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+    
+    
+    <category term="getshell" scheme="https://darkless.cn/tags/getshell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP XXE 利用过程演示</title>
+    <link href="https://darkless.cn/2020/03/16/php-xxe/"/>
+    <id>https://darkless.cn/2020/03/16/php-xxe/</id>
+    <published>2020-03-15T16:00:00.000Z</published>
+    <updated>2020-06-04T07:46:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;XXE简介&quot;&gt;&lt;a href=&quot;#XXE简介&quot; class=&quot;headerlink&quot; title=&quot;XXE简介&quot;&gt;&lt;/a&gt;XXE简介&lt;/h2&gt;&lt;p&gt;在理解什么是XXE之前首先要知道什么是XML，XXE的全称为XML External Entity</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="XXE" scheme="https://darkless.cn/tags/XXE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>免杀webshell的一些研究</title>
+    <link href="https://darkless.cn/2020/02/07/php-free-kill-webshell/"/>
+    <id>https://darkless.cn/2020/02/07/php-free-kill-webshell/</id>
+    <published>2020-02-06T16:00:00.000Z</published>
+    <updated>2020-06-04T07:45:42.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前⾔&quot;&gt;&lt;a href=&quot;#前⾔&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="bypass方法" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/bypass%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="webshell" scheme="https://darkless.cn/tags/webshell/"/>
+    
+    <category term="免杀" scheme="https://darkless.cn/tags/%E5%85%8D%E6%9D%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hashcat rule的使用</title>
+    <link href="https://darkless.cn/2019/12/26/hashcat-rule/"/>
+    <id>https://darkless.cn/2019/12/26/hashcat-rule/</id>
+    <published>2019-12-25T16:00:00.000Z</published>
+    <updated>2020-06-04T07:45:10.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;hashcat简介&quot;&gt;&lt;a href=&quot;#hashcat简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="工具使用" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+    <category term="hashcat" scheme="https://darkless.cn/tags/hashcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从微信群不良广告到酷我音乐存储型XSS再到乐视url跳转</title>
+    <link href="https://darkless.cn/2019/12/23/kuwomusic-xss/"/>
+    <id>https://darkless.cn/2019/12/23/kuwomusic-xss/</id>
+    <published>2019-12-22T16:00:00.000Z</published>
+    <updated>2020-06-04T07:44:42.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以下文章中提到的所有漏洞都已经报相关厂商并已修复&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;事件起因&quot;&gt;&lt;a href=&quot;#事件起因&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞挖掘" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+    
+    
+    <category term="XSS" scheme="https://darkless.cn/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vauditdemo代码审计记录</title>
+    <link href="https://darkless.cn/2019/12/02/vauditdemo-codeview/"/>
+    <id>https://darkless.cn/2019/12/02/vauditdemo-codeview/</id>
+    <published>2019-12-01T16:00:00.000Z</published>
+    <updated>2020-06-07T12:14:34.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;vauditDemo代码审计&quot;&gt;&lt;a href=&quot;#vauditDemo代码审计&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="代码审计" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    
+    <category term="vauditdemo" scheme="https://darkless.cn/tags/vauditdemo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>deepin 微信图片打开空白解决办法</title>
+    <link href="https://darkless.cn/2019/11/29/deepin-wechat-img-issue/"/>
+    <id>https://darkless.cn/2019/11/29/deepin-wechat-img-issue/</id>
+    <published>2019-11-28T16:00:00.000Z</published>
+    <updated>2020-06-04T07:42:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在ubuntu上安装deepin微信后，打开别人发送的图片是空白的，无法显示。&lt;/p&gt;
+&lt;p&gt;网上查了下，deepin论坛给的解决办法如下：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日常" scheme="https://darkless.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="bug解决" scheme="https://darkless.cn/categories/%E6%97%A5%E5%B8%B8/bug%E8%A7%A3%E5%86%B3/"/>
+    
+    
+    <category term="deepin" scheme="https://darkless.cn/tags/deepin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>burpsuite常用插件介绍</title>
+    <link href="https://darkless.cn/2019/11/11/burpsuite-plugins/"/>
+    <id>https://darkless.cn/2019/11/11/burpsuite-plugins/</id>
+    <published>2019-11-10T16:00:00.000Z</published>
+    <updated>2020-06-04T07:42:24.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;JSON-amp-HTTPP&quot;&gt;&lt;a href=&quot;#JSON-amp-HTTPP&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="安全工具" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="burpsuite" scheme="https://darkless.cn/tags/burpsuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>烽火MR820网关的一处越权</title>
+    <link href="https://darkless.cn/2019/10/15/Mr820-pentest/"/>
+    <id>https://darkless.cn/2019/10/15/Mr820-pentest/</id>
+    <published>2019-10-14T16:00:00.000Z</published>
+    <updated>2020-06-04T07:42:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;无聊引发的渗透&quot;&gt;&lt;a href=&quot;#无聊引发的渗透&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="逻辑漏洞" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
+    
+    
+    <category term="越权" scheme="https://darkless.cn/tags/%E8%B6%8A%E6%9D%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bypass安全狗</title>
+    <link href="https://darkless.cn/2019/10/08/bypass-safedog/"/>
+    <id>https://darkless.cn/2019/10/08/bypass-safedog/</id>
+    <published>2019-10-07T16:00:00.000Z</published>
+    <updated>2020-06-04T07:41:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安全狗防护基本方法&quot;&gt;&lt;a href=&quot;#安全狗防护基本方法&quot; class=&quot;headerlink&quot; title=&quot;安全狗防护基本方法&quot;&gt;&lt;/a&gt;安全狗防护基本方法&lt;/h2&gt;&lt;p&gt;本次使用的安全狗版本为：V4.0 27338 IIS</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="bypass方法" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/bypass%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="安全狗" scheme="https://darkless.cn/tags/%E5%AE%89%E5%85%A8%E7%8B%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件上传姿势总结</title>
+    <link href="https://darkless.cn/2019/08/26/file-upload-sumarry/"/>
+    <id>https://darkless.cn/2019/08/26/file-upload-sumarry/</id>
+    <published>2019-08-25T16:00:00.000Z</published>
+    <updated>2020-06-04T07:40:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总体情况&quot;&gt;&lt;a href=&quot;#总体情况&quot; class=&quot;headerlink&quot; title=&quot;总体情况&quot;&gt;&lt;/a&gt;总体情况&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/08/26/suITm38H5xWY6wJ.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="文件上传" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+    
+    <category term="文件上传" scheme="https://darkless.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zabbix SQL注入（CVE-2016-10134）</title>
+    <link href="https://darkless.cn/2019/08/03/zabbix-sql-injection/"/>
+    <id>https://darkless.cn/2019/08/03/zabbix-sql-injection/</id>
+    <published>2019-08-02T16:00:00.000Z</published>
+    <updated>2020-06-04T07:38:40.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是zabbix&quot;&gt;&lt;a href=&quot;#什么是zabbix&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="SQL注入 zabbix" scheme="https://darkless.cn/tags/SQL%E6%B3%A8%E5%85%A5-zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实验演示DHCP攻击与防护</title>
+    <link href="https://darkless.cn/2019/07/03/dhcp-security/"/>
+    <id>https://darkless.cn/2019/07/03/dhcp-security/</id>
+    <published>2019-07-02T16:00:00.000Z</published>
+    <updated>2020-06-07T12:07:56.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;关于DHCP的各种攻击介绍可参考之前的一篇文章&lt;a href=&quot;https://darkless.cn/2018/06/18/DHCP-snooping-summary/&quot;&gt;DHCP</summary>
+        
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://darkless.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="DHCP" scheme="https://darkless.cn/tags/DHCP/"/>
+    
+  </entry>
+  
+</feed>
