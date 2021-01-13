@@ -1370,33 +1370,6 @@
     
     
     <entry>
-      <title>shell中正则表达式总结</title>
-      <link href="2018/06/13/shell-regex/"/>
-      <url>2018/06/13/shell-regex/</url>
-      
-        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-            <tag> shell </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>NAT server和目的NAT</title>
       <link href="2018/06/13/NATserver-DNAT/"/>
       <url>2018/06/13/NATserver-DNAT/</url>
@@ -1418,6 +1391,33 @@
             <tag> NATserver </tag>
             
             <tag> 目的NAT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>shell中正则表达式总结</title>
+      <link href="2018/06/13/shell-regex/"/>
+      <url>2018/06/13/shell-regex/</url>
+      
+        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+            <tag> shell </tag>
             
         </tags>
       
@@ -2325,33 +2325,6 @@
     
     
     <entry>
-      <title>浅谈RSTP的快速收敛机制 P/A机制</title>
-      <link href="2016/11/19/RSTP-PA-mode/"/>
-      <url>2016/11/19/RSTP-PA-mode/</url>
-      
-        <content type="html"><![CDATA[<p>生成要30到50秒的时间，很大的影响了流量的传输和用户体验。</p><p>针对STP的不足，提出了快速生成树协议RSTP（802.1w）。RSTP通过特殊了P/A机制实现了快速收敛。网络拓扑变更后，大约需要3个hello time时间，即6秒。</p><p>P/A机制</p><p><img src="https://raw.githubusercontent.com/handbye/images/master/20190224212012.png" alt="pa"></p><p>1.每一台交换机启动RSTP后，都认为自己是“根桥”，并且发送RST BPDU。所有端口都为指定端口，处于Discarding状态。<br>2.每个交换机收到对方发送的BPDU后会选举其中最优的，此时发送次优BPDU的交换机将停止发送BPDU。并开始执行同步。<br>（同步过程指的是：当收到Proposal置位并且优先级高的BPDU报文时，接收交换机必须设置所有下游指定端口为Discarding状态。如果下游端口是Alternate端口或者边缘端口，则端口状态保持不变。）<br>3.同步执行完成后，下游交换机向上游发送Agreement 置位的<code>RST BPDU</code>，此时次交换机的端口已经确定为根端口。上游交换机收到后，立即将指定端口变为转发状态。因此<code>RST BPDU</code>报文Flags字段里面设置了Agreement标记位和根端口角色。<br>4.下游网段开始使用同样的P/A进程协商端口角色。直到所有网段协商完毕。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 路由交换 </category>
-          
-          <category> 二层协议 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> rstp </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>完美解决wordpress站点无法发送邮件的问题</title>
       <link href="2016/11/19/slove-wordpress-can&#39;t-send-email/"/>
       <url>2016/11/19/slove-wordpress-can&#39;t-send-email/</url>
@@ -2371,6 +2344,33 @@
         <tags>
             
             <tag> wordpress </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浅谈RSTP的快速收敛机制 P/A机制</title>
+      <link href="2016/11/19/RSTP-PA-mode/"/>
+      <url>2016/11/19/RSTP-PA-mode/</url>
+      
+        <content type="html"><![CDATA[<p>生成要30到50秒的时间，很大的影响了流量的传输和用户体验。</p><p>针对STP的不足，提出了快速生成树协议RSTP（802.1w）。RSTP通过特殊了P/A机制实现了快速收敛。网络拓扑变更后，大约需要3个hello time时间，即6秒。</p><p>P/A机制</p><p><img src="https://raw.githubusercontent.com/handbye/images/master/20190224212012.png" alt="pa"></p><p>1.每一台交换机启动RSTP后，都认为自己是“根桥”，并且发送RST BPDU。所有端口都为指定端口，处于Discarding状态。<br>2.每个交换机收到对方发送的BPDU后会选举其中最优的，此时发送次优BPDU的交换机将停止发送BPDU。并开始执行同步。<br>（同步过程指的是：当收到Proposal置位并且优先级高的BPDU报文时，接收交换机必须设置所有下游指定端口为Discarding状态。如果下游端口是Alternate端口或者边缘端口，则端口状态保持不变。）<br>3.同步执行完成后，下游交换机向上游发送Agreement 置位的<code>RST BPDU</code>，此时次交换机的端口已经确定为根端口。上游交换机收到后，立即将指定端口变为转发状态。因此<code>RST BPDU</code>报文Flags字段里面设置了Agreement标记位和根端口角色。<br>4.下游网段开始使用同样的P/A进程协商端口角色。直到所有网段协商完毕。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 路由交换 </category>
+          
+          <category> 二层协议 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rstp </tag>
             
         </tags>
       
