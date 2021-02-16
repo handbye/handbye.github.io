@@ -1087,8 +1087,8 @@ RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;%&#123;REQUEST_URI&#1
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('4'),
-            headingSelector: 'h2, h3, h4, h5'
+            collapseDepth: Number('3'),
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1100,7 +1100,7 @@ RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;%&#123;REQUEST_URI&#1
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
