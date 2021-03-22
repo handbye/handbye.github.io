@@ -1285,35 +1285,6 @@
     
     
     <entry>
-      <title>双向NAT</title>
-      <link href="2018/06/19/two-way-NAT/"/>
-      <url>2018/06/19/two-way-NAT/</url>
-      
-        <content type="html"><![CDATA[<h2 id="出现背景"><a href="#出现背景" class="headerlink" title="出现背景:"></a>出现背景:</h2><p><img src="https://raw.githubusercontent.com/handbye/images/master/b9811c8993f5ed74fe6e60a150e3a5e9.png" alt="b9811c8993f5ed74fe6e60a150e3a5e9.png"></p><p>在防火墙上部署了NATserver后，外网用户可以访问内部服务器。一般内部服务器都会通过一个域名进行解析。但如果内网用户也想通过此域名访问服务器就会出现问题。</p><h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h2><ol><li>防火墙上配置了NATserver，将公网ip    200.1.1.100映射为服务器的私网地址192.168.1.100。数据包会交给服务器。</li><li>pc访问服务器时的目的地址为200.1.1.100，此时防火墙会做转换，将目的地址转换为了192.168.1.100，源地址不变为192.168.1.1</li><li>去时的数据包走向没有问题，分析回来的，回来时就会出现问题。</li><li>由于服务器和PC处于同一网段（防火墙已放行PC所在区域和服务器所在区域的数据），回包时服务器发送ARP报文找到了PC的MAC地址，三层封装时源IP地址为：192.168.1.100，目的IP地址为192.168.1.1。源目MAC地址分别为服务器的MAC地址和PC的MAC地址。数据包直接走二层过去。</li><li>PC和服务进行通信需要建立TCP的三次握手,第一次握手时的目的IP地址为200.1.1.100，但此时却收到了192.168.1.100的回包。怎么办，凌乱了，握手不成功。TCP连接无法建立。</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><blockquote><p>上述问题产生的根本原因是PC访问服务器的数据包来回路径不一致，要解决这个问题只要使服务器访问PC的数据包经过防火墙即可。</p></blockquote><p>防火墙的内网接口地址为192.168.1.254，在防火墙上在做一个源NAT将PC访问服务器的源地址也做一个转换，将192.168.1.1转换为192.168.1.254。</p><p><strong>转换过后在分析：</strong></p><ol><li>过去的数据包走向和上述相同，不再分析。只不过在服务器看来，访问自己的地址变成了192.168.1.254。</li><li>回来时，服务器会把数据包交给192.168.1.254，此时由于防火墙上做了NAT srver,会将服务器的地址转换为200.1.1.100，由于做了源NAT，防火墙将目的地址192.168.1.254转换为192.168.1.1。此时就与之前的TCP三次握手对应上了，PC一看与我握手的是200.1.1.100，成功握手。</li><li>数据包来回路径一致，成功解救问题。</li></ol><p>参考:<br><a href="http://blog.sina.com.cn/s/blog_406127500102uwh3.html">http://blog.sina.com.cn/s/blog_406127500102uwh3.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 网络安全 </category>
-          
-          <category> NAT </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> NAT </tag>
-            
-            <tag> 防火墙 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>mpls vpn</title>
       <link href="2018/06/19/mpls-vpn/"/>
       <url>2018/06/19/mpls-vpn/</url>
@@ -1335,6 +1306,35 @@
             <tag> MPLS </tag>
             
             <tag> vpn </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>双向NAT</title>
+      <link href="2018/06/19/two-way-NAT/"/>
+      <url>2018/06/19/two-way-NAT/</url>
+      
+        <content type="html"><![CDATA[<h2 id="出现背景"><a href="#出现背景" class="headerlink" title="出现背景:"></a>出现背景:</h2><p><img src="https://raw.githubusercontent.com/handbye/images/master/b9811c8993f5ed74fe6e60a150e3a5e9.png" alt="b9811c8993f5ed74fe6e60a150e3a5e9.png"></p><p>在防火墙上部署了NATserver后，外网用户可以访问内部服务器。一般内部服务器都会通过一个域名进行解析。但如果内网用户也想通过此域名访问服务器就会出现问题。</p><h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h2><ol><li>防火墙上配置了NATserver，将公网ip    200.1.1.100映射为服务器的私网地址192.168.1.100。数据包会交给服务器。</li><li>pc访问服务器时的目的地址为200.1.1.100，此时防火墙会做转换，将目的地址转换为了192.168.1.100，源地址不变为192.168.1.1</li><li>去时的数据包走向没有问题，分析回来的，回来时就会出现问题。</li><li>由于服务器和PC处于同一网段（防火墙已放行PC所在区域和服务器所在区域的数据），回包时服务器发送ARP报文找到了PC的MAC地址，三层封装时源IP地址为：192.168.1.100，目的IP地址为192.168.1.1。源目MAC地址分别为服务器的MAC地址和PC的MAC地址。数据包直接走二层过去。</li><li>PC和服务进行通信需要建立TCP的三次握手,第一次握手时的目的IP地址为200.1.1.100，但此时却收到了192.168.1.100的回包。怎么办，凌乱了，握手不成功。TCP连接无法建立。</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><blockquote><p>上述问题产生的根本原因是PC访问服务器的数据包来回路径不一致，要解决这个问题只要使服务器访问PC的数据包经过防火墙即可。</p></blockquote><p>防火墙的内网接口地址为192.168.1.254，在防火墙上在做一个源NAT将PC访问服务器的源地址也做一个转换，将192.168.1.1转换为192.168.1.254。</p><p><strong>转换过后在分析：</strong></p><ol><li>过去的数据包走向和上述相同，不再分析。只不过在服务器看来，访问自己的地址变成了192.168.1.254。</li><li>回来时，服务器会把数据包交给192.168.1.254，此时由于防火墙上做了NAT srver,会将服务器的地址转换为200.1.1.100，由于做了源NAT，防火墙将目的地址192.168.1.254转换为192.168.1.1。此时就与之前的TCP三次握手对应上了，PC一看与我握手的是200.1.1.100，成功握手。</li><li>数据包来回路径一致，成功解救问题。</li></ol><p>参考:<br><a href="http://blog.sina.com.cn/s/blog_406127500102uwh3.html">http://blog.sina.com.cn/s/blog_406127500102uwh3.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> NAT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NAT </tag>
+            
+            <tag> 防火墙 </tag>
             
         </tags>
       
@@ -1370,33 +1370,6 @@
     
     
     <entry>
-      <title>shell中正则表达式总结</title>
-      <link href="2018/06/13/shell-regex/"/>
-      <url>2018/06/13/shell-regex/</url>
-      
-        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-            <tag> shell </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>NAT server和目的NAT</title>
       <link href="2018/06/13/NATserver-DNAT/"/>
       <url>2018/06/13/NATserver-DNAT/</url>
@@ -1418,6 +1391,33 @@
             <tag> NATserver </tag>
             
             <tag> 目的NAT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>shell中正则表达式总结</title>
+      <link href="2018/06/13/shell-regex/"/>
+      <url>2018/06/13/shell-regex/</url>
+      
+        <content type="html"><![CDATA[<p>shell正则表达式分为基础正则表达式和扩展正则表达式。shell的正则表达式可以用在很多地方用来匹配我们需要的结果，例如可以用在gerp命令后面。</p><h2 id="shell基础正则表达式："><a href="#shell基础正则表达式：" class="headerlink" title="shell基础正则表达式："></a>shell基础正则表达式：</h2><ul><li>字符匹配：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">. 任意单个字符[ ] 指定范围内的任意单个字符[ 0,9 ]  , [ [:digit: ]][a,z ] , [[ :lower:]][A,Z] , [[:upper:]][[:alpha:]]  匹配任意英文字母[[:alnum:&#96;&#96;]]  匹配任意英文字母和数字[[:space:]]  匹配空格[[:punct:]]  匹配任意特殊字符[^]  匹配指定范围内的任意单个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>次数匹配：用户匹配其前面的字符的次数</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  匹配前面字符任意次.* 匹配任意字符的任何次数\? 匹配前面字符0次或者1次\&#123;m\&#125;  匹配前面字符m次\&#123;m,n\&#125; 匹配前面字符至少m次至多n次\&#123;m,\&#125;  匹配前面字符至少m次\&#123;0,m\&#125; 匹配前面的字符至多m次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>位置锚定：用于指定字符出现的位置</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">^ 锚定行首$ 锚定行尾^$ 空白行\&lt; 锚定词首\&gt; 锚定词尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\(\)  例如 \(ab\) * xy 匹配ab任意次数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>引用</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">\1  反向引用，引用前面的第一个左括号以及与之对应的右括号中的模式所匹配到的内容\2  引用前面的第二个左括号以及与之对应的右括号中的模式所匹配到的内容例如：\(a.b\)xy\1  可以匹配到：a6bxya6b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2><p>扩展正则表达式是在基础正则表达式的基础上有所增加和改动，大部分都和基础正则表达式相同。</p><p><strong>改动内容</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">次数匹配：*：匹配其前面的字符任意次；?: 匹配其前面的字符0或1次；+: 匹配其前面的字符至少1次&#123;m&#125;: 匹配其前面的字符m次；&#123;m,n&#125;: 至少m次，至多n次&#123;m,&#125;: 至少m次；&#123;0,n&#125;：至多n次；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>分组：</li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">()  括号直接可以分组| 或者grep -E &quot;con(C|c)at&quot; 表示 conCat或concat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>本文完。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+            <tag> shell </tag>
             
         </tags>
       
@@ -1611,33 +1611,6 @@
         <tags>
             
             <tag> 二三层转发 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>堆叠简介</title>
-      <link href="2017/06/16/istack-intro/"/>
-      <url>2017/06/16/istack-intro/</url>
-      
-        <content type="html"><![CDATA[<p>堆叠的过程和VRRP组形成的过程很类似，大体包括：主备的选举（<em>在VRRP中选举出主设备后其余的都是被设备，在堆叠中除了选举主设备和备设备还要选举从设备</em>），拓扑收集，状态同步（在堆叠中需要同步版本信息和配置信息），稳定运行，成员的加入与退出等。</p><p>上述过程只是粗略的描述了一下，VRRP组和堆叠在细节上还是有很大不同的。下面简单介绍下堆叠的原理，作用，堆叠的形成过程。<br>堆叠的合并，分裂，成员的加入退出过程后续文章会慢慢介绍。</p><h2 id="堆叠简介："><a href="#堆叠简介：" class="headerlink" title="堆叠简介："></a>堆叠简介：</h2><p>堆叠iStack（Intelligent Stack），是指将多台支持堆叠特性的交换机设备组合在一起，从逻辑上组合成一台交换设备。如下图：</p><p><img src="https://raw.githubusercontent.com/handbye/images/master/673ef670dab3852b049840762acc14a6.png" alt="673ef670dab3852b049840762acc14a6.png"></p><h2 id="堆叠优点："><a href="#堆叠优点：" class="headerlink" title="堆叠优点："></a>堆叠优点：</h2><p>通过交换机堆叠，可以实现网络高可靠性和网络大数据量转发，同时简化网络管理。</p><ul><li>高可靠性。堆叠系统多台成员交换机之间冗余备份；堆叠支持跨设备的链路聚合功能，实现跨设备的链路冗余备份。</li><li>强大的网络扩展能力。通过增加成员交换机，可以轻松的扩展堆叠系统的端口数、带宽和处理能力；同时支持成员交换机热插拔，新加入的成员交换机自动同步主交换机的配置文件和系统软件版本。</li><li>简化配置和管理。一方面，用户可以通过任何一台成员交换机登录堆叠系统，对堆叠系统所有成员交换机进行统一配置和管理；另一方面，堆叠形成后，不需要配置复杂的二层破环协议（如MSTP）和三层保护倒换协议（如VRRP），简化了网络配置。</li></ul><h2 id="堆叠原理："><a href="#堆叠原理：" class="headerlink" title="堆叠原理："></a>堆叠原理：</h2><p><strong>先介绍下堆叠的一些基本概念吧：</strong><br>主设备：负责管理整个堆叠<br>从设备：作为主设备的备份，一旦主设备挂掉，从设备会承担主设备的业务<br>从设备：主要用于业务转发，从交换机数量越多，堆叠系统的转发能力越强。除主交换机和备交换机外，         堆叠中其他所有的成员交换机都是从交换机。<br>堆叠ID：即成员交换机的槽位号（SlotID），用来标识和管理成员交换机，堆叠中所有成员交换机的堆叠         ID都是唯一的。<br>堆叠优先级：堆叠优先级是成员交换机的一个属性，主要用于角色选举过程中确定成员交换机的角色，优             先级值越大表示优先级越高，优先级越高当选为主交换机的可能性越大。</p><h2 id="堆叠的建立："><a href="#堆叠的建立：" class="headerlink" title="堆叠的建立："></a>堆叠的建立：</h2><p><strong>堆叠建立的过程包括以下四个阶段：</strong></p><ol><li>物理连接：根据网络需求，选择适当的连接方式和连接拓扑，组建堆叠网络。</li><li>主设备选举：成员交换机之间相互发送堆叠竞争报文，并根据选举原则，选出堆叠系统主设备。</li><li>拓扑收集和备设备选举：主设备收集所有成员交换机的拓扑信息，向所有成员设备分配堆叠ID    ，之后选出堆叠系统备设备。</li><li>稳定运行：主设备将整个堆叠系统的拓扑信息同步给所有成员设备，成员设备同步主涉笔的系统软件和配置文件，之后进入稳定运行状态。</li></ol><h2 id="下面说一下每个过程的重点内容："><a href="#下面说一下每个过程的重点内容：" class="headerlink" title="下面说一下每个过程的重点内容："></a>下面说一下每个过程的重点内容：</h2><p>物理连接：物理连接分为链形堆叠和环形堆叠。</p><p><img src="https://i.ooxx.ooo/2017/09/10/df4b64a1142dd79e7a4aa4f365031db2.png"></p><p>主设备选举：选举规则：<br>1.运行状态比较，已经运行的交换机优先处于启动状态的交换机竞争为主交换机。</p><blockquote><p>堆叠主交换机选举超时时间为20s，堆叠成员交换机上电或重启时，由于不同成员交换机所需的启动时间可能差异比较大，因此不是所有成员交换机都有机会参与主交换机的选举：启动时间与启动最快的成员交换机相比，相差超过20s的成员交换机没有机会参与主交换机的选举，只能被动加入堆叠成为非主交换机，加入过程可参见堆叠成员加入与退出。</p></blockquote><p>因此，如果希望指定某一成员交换机成为主交换机，则可以先为其上电，待其启动完成后再给其他成员交换机上电。</p><p>2.堆叠优先级高的交换机优先竞争为主交换机。</p><p>3.堆叠优先级相同时，MAC地址小的交换机优先竞争为主交换机。</p><p>备设备选举：选举规则：</p><p>除主交换机外最先完成设备启动的交换机优先被选为备份交换机。当除主交换机外其它交换机同时完成启动时，备交换机的选举规则如下（依次从第一条开始判断，直至找到最优的交换机才停止比较）：</p><p>1.堆叠优先级最高的设备成为备交换机。<br>2.堆叠优先级相同时，MAC地址最小的成为备交换机。<br>  除主交换机和备交换机之外，剩下的其他成员交换机作为从交换机加入堆叠。</p><p>稳定运行：角色选举、拓扑收集完成之后，所有成员交换机会自动同步主交换机的<strong>系统软件和配置文件</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 路由交换 </category>
-          
-          <category> 高可靠 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 堆叠 </tag>
             
         </tags>
       
