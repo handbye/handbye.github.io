@@ -6,7 +6,7 @@
   <link href="https://darkless.cn/atom.xml" rel="self"/>
   
   <link href="https://darkless.cn/"/>
-  <updated>2020-11-22T10:09:20.000Z</updated>
+  <updated>2021-04-21T15:00:36.787Z</updated>
   <id>https://darkless.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MyBatis和MyBatis可能导致的sql注入</title>
+    <link href="https://darkless.cn/2021/04/02/mybatis-and-sqli/"/>
+    <id>https://darkless.cn/2021/04/02/mybatis-and-sqli/</id>
+    <published>2021-04-01T16:00:00.000Z</published>
+    <updated>2021-04-21T15:00:36.787Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;MyBatis简介&quot;&gt;&lt;a href=&quot;#MyBatis简介&quot; class=&quot;headerlink&quot; title=&quot;MyBatis简介&quot;&gt;&lt;/a&gt;MyBatis简介&lt;/h2&gt;&lt;p&gt;MyBatis 是一款优秀的持久层框架，它支持定制化</summary>
+        
+      
+    
+    
+    
+    <category term="web安全" scheme="https://darkless.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="SQL注入" scheme="https://darkless.cn/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="MyBatis" scheme="https://darkless.cn/tags/MyBatis/"/>
+    
+  </entry>
   
   <entry>
     <title>C++学习笔记</title>
@@ -538,31 +565,6 @@
     
     
     <category term="SQL注入 zabbix" scheme="https://darkless.cn/tags/SQL%E6%B3%A8%E5%85%A5-zabbix/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验演示DHCP攻击与防护</title>
-    <link href="https://darkless.cn/2019/07/03/dhcp-security/"/>
-    <id>https://darkless.cn/2019/07/03/dhcp-security/</id>
-    <published>2019-07-02T16:00:00.000Z</published>
-    <updated>2020-06-07T12:07:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;关于DHCP的各种攻击介绍可参考之前的一篇文章&lt;a href=&quot;https://darkless.cn/2018/06/18/DHCP-snooping-summary/&quot;&gt;DHCP</summary>
-        
-      
-    
-    
-    
-    <category term="网络安全" scheme="https://darkless.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    
-    <category term="DHCP" scheme="https://darkless.cn/tags/DHCP/"/>
     
   </entry>
   
