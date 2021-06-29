@@ -1946,9 +1946,9 @@
       
         <tags>
             
-            <tag> IPV4 </tag>
-            
             <tag> IPV6 </tag>
+            
+            <tag> IPV4 </tag>
             
         </tags>
       
@@ -2217,11 +2217,11 @@
     
     
     <entry>
-      <title>Ripv1和Ripv2的不同以及报文结构对比</title>
-      <link href="2016/11/24/ripv1-ripv2-diff/"/>
-      <url>2016/11/24/ripv1-ripv2-diff/</url>
+      <title>RIPV1和RIPV2兼容性</title>
+      <link href="2016/11/24/RIPV1-RIPV2-compatibility/"/>
+      <url>2016/11/24/RIPV1-RIPV2-compatibility/</url>
       
-        <content type="html"><![CDATA[<h3 id="RIP路由协议简介："><a href="#RIP路由协议简介：" class="headerlink" title="RIP路由协议简介："></a>RIP路由协议简介：</h3><p>RIP（路由信息协议）是一种距离矢量的路由协协议，距离：是指其使用跳数来作为路由的cost值，矢量：代表其传递路由时是有方向性的。</p><p>由于RIP协议的配置简单，易于维护而得到广泛的应用吗，但又因其最大支持15跳的原因只能应用于较小规模的网络中。</p><h3 id="RIP两个版本的区别："><a href="#RIP两个版本的区别：" class="headerlink" title="RIP两个版本的区别："></a>RIP两个版本的区别：</h3><p>RIP现有两个版本：RIPV1和RIPV2。两版本最主要的区域如下：</p><p><strong>RIPv1：</strong></p><ul><li>有类别路由协议，不支持VLSM和CIDR。</li><li>以广播的形式发送报文。</li><li>不支持认证。</li></ul><p><strong>RIPv2：</strong></p><ul><li>无类别路由协议，支持VLSM，支持路由聚合与CIDR。</li><li>支持以广播或者组播（224.0.0.9）方式发送报文。</li><li>支持明文认证和MD5密文认证。</li></ul><h3 id="RIP报文结构："><a href="#RIP报文结构：" class="headerlink" title="RIP报文结构："></a>RIP报文结构：</h3><p>今天主要来比较RIPV1和RIPv2的报文结构：</p><h4 id="RIPV1报文："><a href="#RIPV1报文：" class="headerlink" title="RIPV1报文："></a>RIPV1报文：</h4><p><img src="https://i.loli.net/2018/03/26/5ab8e738cf618.png" alt="RIPV1.png"></p><h4 id="RIPV2报文："><a href="#RIPV2报文：" class="headerlink" title="RIPV2报文："></a>RIPV2报文：</h4><p><img src="https://i.loli.net/2018/03/26/5ab8e61c45820.png" alt="RIPV2.png"></p><p>其实RIPV1和RIPV2的不同之处已经表现在报文内容中。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2018/03/26/5ab8e61c45820.png" alt="RIPV2.png"></p><p>RIPV2中有个字段Unused</p><p>如果运行了RIPV2协议的路由器收到了更新报文的版本字段指出RIP的版本为1,但所有未使用的字段(UNUSED FIELD)的所有位都被设置为1,那么这个更新报文将被丢弃;</p><p>如果版本改字段设置大于1,此路由器收到的RIPV1报文中定义为未使用的字段将被忽略,并且处理这个消息。</p><p>结果,像RIP V2协议这样新版本的协议就可以向后兼容RIP-V1.</p><p>＂兼容性开关＂,用来允许版本1和版本2之间的互操作:</p><p>RIP-1——只有RIPV1的消息传送:<br>RIP-1兼容性——使RIPV2使用广播方式代替组播方式来通告消息,以便RIPV1可以接收它们;</p><p>RIP-2——RIP V2协议使用组播方式通告消息到目的地址224.0.0.9</p><p>NONE——不发送消息</p>]]></content>
       
       
       <categories>
@@ -2244,11 +2244,11 @@
     
     
     <entry>
-      <title>RIPV1和RIPV2兼容性</title>
-      <link href="2016/11/24/RIPV1-RIPV2-compatibility/"/>
-      <url>2016/11/24/RIPV1-RIPV2-compatibility/</url>
+      <title>Ripv1和Ripv2的不同以及报文结构对比</title>
+      <link href="2016/11/24/ripv1-ripv2-diff/"/>
+      <url>2016/11/24/ripv1-ripv2-diff/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2018/03/26/5ab8e61c45820.png" alt="RIPV2.png"></p><p>RIPV2中有个字段Unused</p><p>如果运行了RIPV2协议的路由器收到了更新报文的版本字段指出RIP的版本为1,但所有未使用的字段(UNUSED FIELD)的所有位都被设置为1,那么这个更新报文将被丢弃;</p><p>如果版本改字段设置大于1,此路由器收到的RIPV1报文中定义为未使用的字段将被忽略,并且处理这个消息。</p><p>结果,像RIP V2协议这样新版本的协议就可以向后兼容RIP-V1.</p><p>＂兼容性开关＂,用来允许版本1和版本2之间的互操作:</p><p>RIP-1——只有RIPV1的消息传送:<br>RIP-1兼容性——使RIPV2使用广播方式代替组播方式来通告消息,以便RIPV1可以接收它们;</p><p>RIP-2——RIP V2协议使用组播方式通告消息到目的地址224.0.0.9</p><p>NONE——不发送消息</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="RIP路由协议简介："><a href="#RIP路由协议简介：" class="headerlink" title="RIP路由协议简介："></a>RIP路由协议简介：</h3><p>RIP（路由信息协议）是一种距离矢量的路由协协议，距离：是指其使用跳数来作为路由的cost值，矢量：代表其传递路由时是有方向性的。</p><p>由于RIP协议的配置简单，易于维护而得到广泛的应用吗，但又因其最大支持15跳的原因只能应用于较小规模的网络中。</p><h3 id="RIP两个版本的区别："><a href="#RIP两个版本的区别：" class="headerlink" title="RIP两个版本的区别："></a>RIP两个版本的区别：</h3><p>RIP现有两个版本：RIPV1和RIPV2。两版本最主要的区域如下：</p><p><strong>RIPv1：</strong></p><ul><li>有类别路由协议，不支持VLSM和CIDR。</li><li>以广播的形式发送报文。</li><li>不支持认证。</li></ul><p><strong>RIPv2：</strong></p><ul><li>无类别路由协议，支持VLSM，支持路由聚合与CIDR。</li><li>支持以广播或者组播（224.0.0.9）方式发送报文。</li><li>支持明文认证和MD5密文认证。</li></ul><h3 id="RIP报文结构："><a href="#RIP报文结构：" class="headerlink" title="RIP报文结构："></a>RIP报文结构：</h3><p>今天主要来比较RIPV1和RIPv2的报文结构：</p><h4 id="RIPV1报文："><a href="#RIPV1报文：" class="headerlink" title="RIPV1报文："></a>RIPV1报文：</h4><p><img src="https://i.loli.net/2018/03/26/5ab8e738cf618.png" alt="RIPV1.png"></p><h4 id="RIPV2报文："><a href="#RIPV2报文：" class="headerlink" title="RIPV2报文："></a>RIPV2报文：</h4><p><img src="https://i.loli.net/2018/03/26/5ab8e61c45820.png" alt="RIPV2.png"></p><p>其实RIPV1和RIPV2的不同之处已经表现在报文内容中。</p>]]></content>
       
       
       <categories>
