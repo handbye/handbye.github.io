@@ -646,22 +646,20 @@ RD与路由一起被携带在BGP Update报文中发送给对端。
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2016/11/24/RIPV1-RIPV2-compatibility/">
+                        <a href="/2016/11/24/ripv1-ripv2-diff/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="RIPV1和RIPV2兼容性">
+                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Ripv1和Ripv2的不同以及报文结构对比">
                                 
-                                <span class="card-title">RIPV1和RIPV2兼容性</span>
+                                <span class="card-title">Ripv1和Ripv2的不同以及报文结构对比</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    
-RIPV2中有个字段Unused
-如果运行了RIPV2协议的路由器收到了更新报文的版本字段指出RIP的版本为1,但所有未使用的字段(UNUSED FIELD)的所有位都被设置为1,那么这个更新报文将被丢弃;
-如果版本改字段设置大于1,此路
+                                    RIP路由协议简介：RIP（路由信息协议）是一种距离矢量的路由协协议，距离：是指其使用跳数来作为路由的cost值，矢量：代表其传递路由时是有方向性的。
+由于RIP协议的配置简单，易于维护而得到广泛的应用吗，但又因其最大支持15跳的原因只能应
                                 
                             </div>
                             <div class="publish-info">
@@ -712,20 +710,22 @@ RIPV2中有个字段Unused
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2016/11/24/ripv1-ripv2-diff/">
+                        <a href="/2016/11/24/RIPV1-RIPV2-compatibility/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Ripv1和Ripv2的不同以及报文结构对比">
+                                <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="RIPV1和RIPV2兼容性">
                                 
-                                <span class="card-title">Ripv1和Ripv2的不同以及报文结构对比</span>
+                                <span class="card-title">RIPV1和RIPV2兼容性</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    RIP路由协议简介：RIP（路由信息协议）是一种距离矢量的路由协协议，距离：是指其使用跳数来作为路由的cost值，矢量：代表其传递路由时是有方向性的。
-由于RIP协议的配置简单，易于维护而得到广泛的应用吗，但又因其最大支持15跳的原因只能应
+                                    
+RIPV2中有个字段Unused
+如果运行了RIPV2协议的路由器收到了更新报文的版本字段指出RIP的版本为1,但所有未使用的字段(UNUSED FIELD)的所有位都被设置为1,那么这个更新报文将被丢弃;
+如果版本改字段设置大于1,此路
                                 
                             </div>
                             <div class="publish-info">
